@@ -7,9 +7,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-
 #Site
+Route::get('/ads', 'Site\AnuncioController@index')->name('ads');
+Route::get('/detalhe', 'Site\AnuncioController@detalhe')->name('detalhe');
 
 #Admin
 Route::get('/dashboard', 'Admin\UsuarioController@index')->name('dashboard');
