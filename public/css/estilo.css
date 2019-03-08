@@ -1,0 +1,98 @@
+
+/* Formulário de pagamento */
+.tracker {
+    display: block;
+    margin-bottom: 65px;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul li { display: inline; }
+
+.step {
+    background-color: #ededed;
+    border: 1px solid #ededed;
+    border-radius: 12px;
+    margin-right: 10px;
+    margin-top: 0;
+    padding: 2px 8px;
+    text-align: center;
+}
+
+.block-left {
+    display: block;
+    float: left;
+}
+
+.step-description {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.tracker ul li a {
+    color: #252525;
+    text-decoration: underline;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+.tracker ul li.track-active {
+    color: green;
+}
+
+.block-left {
+    display: block;
+    float: left;
+}
+
+.track-active{
+	color: green;
+}
+
+.item-plano{
+	background-color: #fbf7e2;
+    border-color: #d8d8d8;
+    border-image: none;
+    border-style: solid none;
+    border-width: 1px 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-top: 5px;
+    max-width: 100%;
+    padding: 10px 10px 5px;
+}
+
+
+.red {
+    color: #FF0000;
+}
+
+.btn-progress{
+	padding: 10px;
+	width: 250px;
+	font-size: 18px;
+}
+
+/* Fim - Formulário de pagamento */
