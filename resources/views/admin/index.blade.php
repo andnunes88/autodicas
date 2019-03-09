@@ -32,8 +32,8 @@
 
 			<ul class="nav nav-tabs">
 				<li class="active"><a data-toggle="tab" href="#home">Area Pessoal</a></li>
-				<li><a href="#">Meus Anúncios</a></li>
-				<li><a href="#">Editar Perfil</a></li>
+				<li><a href="{{route('admin.anuncios')}}">Meus Anúncios</a></li>
+				<li><a href="{{route('admin.perfil')}}">Editar Perfil</a></li>
 			</ul>
 
 			<div class="tab-content">

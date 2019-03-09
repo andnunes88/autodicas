@@ -58,7 +58,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Autodicas.com</a>
+        <a class="navbar-brand" href="{{route('site.home')}}">Autodicas.com</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         
@@ -70,15 +70,15 @@
              
             <ul class="dropdown-menu">              
 
-              <li><a href="#"><span class="glyphicon glyphicon-user"> </span> Área Pessoal</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-th-large"> </span> Meus Anúncios</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-edit"> </span> Editar Perfil</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-remove-circle"> </span> Sair</a></li>            
-              
+              <li><a href="{{route('admin.dashboard')}}"><span class="glyphicon glyphicon-user"> </span> Área Pessoal</a></li>
+              <li><a href="{{route('admin.anuncios')}}"><span class="glyphicon glyphicon-th-large"> </span> Meus Anúncios</a></li>
+              <li><a href="{{route('admin.perfil')}}"><span class="glyphicon glyphicon-edit"> </span> Editar Perfil</a></li>
+              <li><a href="{{route('admin.login.sair')}}"><span class="glyphicon glyphicon-remove-circle"> </span> Sair</a></li>            
+                                    
             </ul>
           </li>
 
-          <li><a class="btn-anunciar btn btn-xs btn-warning" href="#">Anunciar</a></li>           
+          <li><a class="btn-anunciar btn btn-xs btn-warning" href="{{route('admin.anuncios.cadastrar')}}">Anunciar</a></li>          
           
         </ul>        
 

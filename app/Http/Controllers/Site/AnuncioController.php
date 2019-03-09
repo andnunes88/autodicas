@@ -9,6 +9,10 @@ class AnuncioController extends Controller
 {
     //
     public function index(){
+    	return view('site.home');
+    }
+
+    public function ads(){
     	return view('site.anuncio.ads');
     }
 
