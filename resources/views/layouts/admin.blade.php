@@ -20,7 +20,7 @@
 
   <body>
 
-    @include('layouts._admin._nav')
+    @include('layouts._site._nav')
 
     <main>
         

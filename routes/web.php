@@ -21,9 +21,7 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::post('/admin/anuncios/salvar/',['as'=>'admin.anuncios.salvar', 'uses'=>'Admin\AnuncioController@salvar']);
 	Route::get('/admin/anuncios/editar/{id}',['as'=>'admin.anuncios.editar', 'uses'=>'Admin\AnuncioController@editar']);
 	Route::put('/admin/anuncios/atualizar/{id}',['as'=>'admin.anuncios.atualizar', 'uses'=>'Admin\AnuncioController@atualizar']);
-	Route::get('/admin/anuncios/detetar/{id}',['as'=>'admin.anuncios.deletar', 'uses'=>'Admin\AnuncioController@deletar']);
-
-	
+	Route::get('/admin/anuncios/detetar/{id}',['as'=>'admin.anuncios.deletar', 'uses'=>'Admin\AnuncioController@deletar']);	
 
 	Route::get('/admin/perfil/',['as'=>'admin.perfil', 'uses'=>'PerfilController@index']);
 	Route::get('/admin/perfil/adicionar/',['as'=>'admin.perfil.adicionar', 'uses'=>'PerfilController@adicionar']);

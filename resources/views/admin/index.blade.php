@@ -42,7 +42,7 @@
 
 					<img id="img-perfil" src="{{asset('img/coin.png')}}" alt="moeda">
 
-					<h3 id="txt-boas-vidas">Olá # Bem-vindo à sua área pessoal.</h3>
+					<h3 id="txt-boas-vidas">Olá {{Auth::user()->name}} Bem-vindo à sua área pessoal.</h3>
 
 					<div class="row">
 						<div class="col-md-4">
