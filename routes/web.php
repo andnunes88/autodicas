@@ -4,7 +4,6 @@ Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
 Auth::routes();
 
-
 #Site
 Route::get('/ads', 'Site\AnuncioController@index')->name('ads');
 Route::get('/detalhe', 'Site\AnuncioController@detalhe')->name('detalhe');
