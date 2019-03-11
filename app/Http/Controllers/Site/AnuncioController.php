@@ -4,16 +4,23 @@ namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Anuncio;
 
 class AnuncioController extends Controller
 {
     //
     public function index(){
-    	return view('site.home');
+        
+        $registros = Anuncio::all();
+
+    	return view('site.home', compact('registros'));
     }
 
     public function ads(){
-    	return view('site.anuncio.ads');
+
+        $registros = Anuncio::all();
+
+    	return view('site.anuncio.ads', compact('registros'));
     }
 
     public function detalhe(){

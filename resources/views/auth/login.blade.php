@@ -61,6 +61,10 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Esqueceu sua senha?') }}
                                 </a>
+
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    {{ __('Criar Nova Conta') }}
+                                </a>
                             </div>
                         </div>
                     </form>

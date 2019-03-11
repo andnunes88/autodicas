@@ -61,26 +61,28 @@
     
     <div class="container">			
 		<div class="row">			
-
+			
+			@foreach($registros as $anuncio)
 				<div class="gallery">
 				  <a href="#">
-					<img src="#" alt="Imagem do produto" width="224" height="224" class="img-responsive center-block">
+					<img src="{{ asset($anuncio->imagem) }}" alt="Imagem do produto" width="224" height="224" class="img-responsive center-block">
 				  </a>
-				  <div class="desc">####</div>
+				  <div class="desc">{{$anuncio->titulo}}</div>
 				  
-				   	@if(1==1)
+				   	@if($anuncio->valor == 0)
                     	<div class="preco">A combinar</div>
                 	@else
-                    	<div class="preco">R$  </div>
+                    	<div class="preco">R$ {{number_format($anuncio->valor,2,",",".")}}  </div>
                 	@endif
 
-				</div>			
+				</div>	
+			@endforeach		
 			
 			<div class="clearfix"></div>
 			
 			<div class="container_ver_mais">
 
-				<a class="pagination_button" href="#">
+				<a class="pagination_button" href="{{route('ads')}}">
 					Mais Anúncios	
 				</a>
 

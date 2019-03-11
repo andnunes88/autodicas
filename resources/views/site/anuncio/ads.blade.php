@@ -110,7 +110,7 @@ ul li{
             <div class="col-md-12">
 
                 <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="{{route('site.home')}}">Home</a></li>
                     <li class="active">Todos os Produtos</li>
                 </ol>
 
@@ -131,6 +131,7 @@ ul li{
 				
 				<h4> Anúncios </h4>			
 				
+                @foreach($registros as $anuncio)
 
 				<a href="#" class="lista-produto">
 			  
@@ -143,19 +144,19 @@ ul li{
 
 						<div class="col-xs-8 col-md-7 section-box">
 							
-							<h1 class="titulo-anuncio">Bla</h4>
+							<h1 class="titulo-anuncio">{{$anuncio->titulo}}</h4>
 
 							</br>
 							
-							@if(1 == 1)
+							@if( $anuncio->valor == 0 )
 								<span id="preco">A Combinar</span>
 							@else
-								<span id="preco">R$ #</span>
+								<span id="preco">R$ {{number_format($anuncio->valor,2,",",".")}}</span>
 							@endif
 
 							<p class="info-loja">
 							   <strong>Descrição do Produto</strong><br>
-							   Bla Bla Bla
+							   {{$anuncio->descricao}}
 							</p>
 						</div>
 
@@ -166,10 +167,7 @@ ul li{
 								   
 										<p><strong>Vendedor:</strong> Anderson </p>
 										<p class="info-loja"><strong>Local:</strong> Belford Roxo</p>
-										<p class="info-loja"><strong>Contato:</strong> 
-																						
-													  
-										</p>     								   
+										<p class="info-loja"><strong>Contato:</strong> </p>     								   
 
 								</div>
 							</div>
@@ -178,6 +176,8 @@ ul li{
 					</div>
 
 				</a>
+
+                @endforeach
 			   
 				
 

@@ -5,7 +5,7 @@ Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 Auth::routes();
 
 #Site
-Route::get('/ads', 'Site\AnuncioController@index')->name('ads');
+Route::get('/ads', 'Site\AnuncioController@ads')->name('ads');
 Route::get('/detalhe', 'Site\AnuncioController@detalhe')->name('detalhe');
 
 Route::group(['middleware'=>'auth'], function(){
@@ -22,11 +22,12 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::put('/admin/anuncios/atualizar/{id}',['as'=>'admin.anuncios.atualizar', 'uses'=>'Admin\AnuncioController@atualizar']);
 	Route::get('/admin/anuncios/detetar/{id}',['as'=>'admin.anuncios.deletar', 'uses'=>'Admin\AnuncioController@deletar']);	
 
+	
 	Route::get('/admin/perfil/',['as'=>'admin.perfil', 'uses'=>'PerfilController@index']);
 	Route::get('/admin/perfil/adicionar/',['as'=>'admin.perfil.adicionar', 'uses'=>'PerfilController@adicionar']);
 	Route::post('/admin/perfil/salvar/',['as'=>'admin.perfil.salvar', 'uses'=>'PerfilController@salvar']);
 	Route::get('/admin/perfil/editar/{id_usuario}',['as'=>'admin.perfil.editar', 'uses'=>'PerfilController@editar']);
 	Route::put('/admin/perfil/atualizar/{id_perfil}',['as'=>'admin.perfil.atualizar', 'uses'=>'PerfilController@atualizar']);
 	Route::get('/admin/perfil/detetar/{id}',['as'=>'admin.perfil.deletar', 'uses'=>'PerfilController@deletar']);
-
+	
 });
