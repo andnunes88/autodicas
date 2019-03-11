@@ -13,11 +13,13 @@ Route::get('/teste', function(){
 
 Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
-Auth::routes();
-
 #Site
 Route::get('/ads', 'Site\AnuncioController@ads')->name('ads');
-Route::get('/detalhe', 'Site\AnuncioController@detalhe')->name('detalhe');
+
+#Anuncio com Slug
+Route::get('anuncio/{slug}/{id?}', 'Site\AnuncioController@detalhe')->name('site.anuncio.detalhe');
+
+Auth::routes();
 
 Route::group(['middleware'=>'auth'], function(){
 

@@ -132,7 +132,7 @@ ul li{
 
             @foreach($registros as $anuncio)
 
-            <a href="#" class="lista-produto">
+            <a href="{{route('site.anuncio.detalhe',  $anuncio->anuncio_slug .'/'. $anuncio->id)}}" class="lista-produto">
 
              <div id="lista-produto" class="row borda">
 

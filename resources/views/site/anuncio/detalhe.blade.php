@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 
 <style>
@@ -85,37 +84,34 @@
          
     <div class="row">
         
-		<h1 class="produto-titulo">#</h1>
+		<h1 class="produto-titulo">{{$registro->titulo}}</h1>
             
             <div class="col-md-9">
+                
                 <div>
                     
-                    @if(1 == 1)
+                    @if(isset($galeria) && $galeria->count() > 0)
                     
                         <ul id="lightSlider">
-                            
-                           
-                            
-                                <li data-thumb="{{asset('img/thumb/cS-1.jpg')}}"> 
-                                    <img class="img" src="#"/>
-                                </li>
 
-                           
+                            <li data-thumb="{{asset('img/thumb/cS-1.jpg')}}"> 
+                                <img class="img" src="#"/>
+                            </li>
                                     
                         </ul>
 
                     @else
-                        <img class="imagem-produto" src="#" alt="#">
+                        <img class="imagem-produto" src="{{ asset($registro->imagem) }}" alt="{{ $registro->anuncio_slug }}">
                     @endif
 
                 </div>
 
                 </br>                 
 
-                @if(1 == 1)
+                @if($registro->valor == 0)
                     <h4>Preço: <span class="produto-preco"> A combinar</span></h4>
                 @else
-                    <h4>Preço: <span class="produto-preco">R$ #</span></h4>
+                    <h4>Preço: <span class="produto-preco">R$ {{number_format($registro->valor,2,",",".")}}</span></h4>
                 @endif
 
             </div>
@@ -123,7 +119,7 @@
             <div class="col-md-3">
                 
                     <div class="panel panel-default">
-                        <div class="panel-heading">Informações da loja</div>
+                        <div class="panel-heading">Informações do Anunciante</div>
                         <div class="panel-body text-center">
                             <div class="informacoes-loja">
                                 <div class="logo-loja">
@@ -134,28 +130,18 @@
                                         <img src="#" alt="#"> 
                                     </a>
 
-                                    <h3> ###</h3>                                            
-                                    <p> Localização: <strong> ### </strong></p>
+                                    <h3> {{$registro->usuario->name}} </h3>                                            
+                                    <p> Localização: <strong> {{$registro->usuario->cidade}} </strong></p>
                                     
                                     <a href="tel:#">                                  
                                         <button type="button" class="btn btn-primary btn-tel">
                                           <span class="glyphicon glyphicon-earphone"> </span> 
-                                          ###
+                                          {{$registro->usuario->telefone}}
                                         </button>                                    
                                     </a>
 
                                 </div>
 
-                                <div>
-                                    <a href="#">
-                                        <button type="button" class="btn btn-primary btn-loja">
-                                          <span class="glyphicon glyphicon-home"> </span> 
-                                          Perfil da Loja 
-                                        </button>   
-                                    </a>                                   
-                                </div>
-
-                                
                             </div>
                         </div>
                     </div>
@@ -165,26 +151,18 @@
             <div class="col-md-9">                
                 <hr>
                 <h3>Detalhe do produto</h3>
-                <p>###</p>
-                <p>###</p>
-                <p>###</p>
-
+                <p>{{$registro->descricao}}</p>
+                
                 <hr>
 
-                <h3 class="text-uppercase">Localização </h3> 
-
-                  
+                <h3 class="text-uppercase">Localização </h3>                   
 
                     <ul>
-                        
-                        <li><strong>Endereço:</strong>  ### </li>
-                        <li><strong>CEP:</strong>      ###  </li>
-                        <li><strong>Bairro:</strong>    ### </li>
-                        <li><strong>Cidade:</strong>    ### </li>
-                    </ul>             
-                  
-
-                   
+                        <li><strong>Endereço:</strong>  {{$registro->usuario->endereco}} </li>
+                        <li><strong>CEP:</strong>      {{$registro->usuario->cep}}  </li>                       
+                        <li><strong>Cidade:</strong>    {{$registro->usuario->cidade}} </li>
+                        <li><strong>Bairro:</strong>    {{$registro->usuario->bairro}} </li>
+                    </ul>                    
 
             </div>
 

@@ -23,7 +23,12 @@ class AnuncioController extends Controller
     	return view('site.anuncio.ads', compact('registros'));
     }
 
-    public function detalhe(){
-    	return view('site.anuncio.detalhe');
+    public function detalhe($anuncio_slug, $id_anuncio){
+                
+        $registro = Anuncio::where('anuncio_slug', $anuncio_slug)
+        ->where('id', $id_anuncio)
+        ->first();
+
+    	return view('site.anuncio.detalhe', compact('registro'));
     }
 }
