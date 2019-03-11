@@ -20,7 +20,7 @@
 
 					{{ csrf_field() }}
 					
-					@include('admin.perfil._form')
+					@include('admin.usuario._form')
 
 					<div class="form-group">        
 						<div class="col-sm-offset-2 col-sm-10">

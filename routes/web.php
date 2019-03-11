@@ -22,12 +22,11 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::put('/admin/anuncios/atualizar/{id}',['as'=>'admin.anuncios.atualizar', 'uses'=>'Admin\AnuncioController@atualizar']);
 	Route::get('/admin/anuncios/detetar/{id}',['as'=>'admin.anuncios.deletar', 'uses'=>'Admin\AnuncioController@deletar']);	
 
-	
-	Route::get('/admin/perfil/',['as'=>'admin.perfil', 'uses'=>'PerfilController@index']);
-	Route::get('/admin/perfil/adicionar/',['as'=>'admin.perfil.adicionar', 'uses'=>'PerfilController@adicionar']);
-	Route::post('/admin/perfil/salvar/',['as'=>'admin.perfil.salvar', 'uses'=>'PerfilController@salvar']);
-	Route::get('/admin/perfil/editar/{id_usuario}',['as'=>'admin.perfil.editar', 'uses'=>'PerfilController@editar']);
-	Route::put('/admin/perfil/atualizar/{id_perfil}',['as'=>'admin.perfil.atualizar', 'uses'=>'PerfilController@atualizar']);
-	Route::get('/admin/perfil/detetar/{id}',['as'=>'admin.perfil.deletar', 'uses'=>'PerfilController@deletar']);
+	Route::get('/usuario/perfil', 'Admin\UsuarioController@ExibirFormPerfil')->name('admin.perfil');
+	Route::get('/usuario/perfil/adicionar/', 'Admin\UsuarioController@adicionar')->name('admin.perfil.adicionar');
+	Route::post('/usuario/perfil/salvar/', 'Admin\UsuarioController@completarPerfil')->name('admin.perfil.salvar');
+	Route::get('/usuario/perfil/editar/{id_usuario}', 'Admin\UsuarioController@editarPerfil')->name('admin.perfil.editar');
+	Route::put('/usuario/perfil/atualizar/{id_perfil}', 'Admin\UsuarioController@atualizar')->name('admin.perfil.atualizar');
+	Route::get('/usuario/perfil/detetar/{id}', 'Admin\UsuarioController@deletar')->name('admin.perfil.deletar');
 	
 });

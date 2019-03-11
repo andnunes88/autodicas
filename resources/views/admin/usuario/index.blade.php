@@ -15,7 +15,7 @@
 
 			<div id="perfil" class="tab-pane fade in active">
 
-				@include('admin.perfil.adicionar')
+				@include('admin.usuario.adicionar')
 
 			</div> 
 

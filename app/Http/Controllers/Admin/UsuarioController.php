@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\User;
 
 class UsuarioController extends Controller
 {
@@ -28,47 +29,86 @@ class UsuarioController extends Controller
        return view('admin.dashboard', compact('titulo','total_produtos', 'qtd_produtos_categoria', 'total_click_mes'));
         
     }   
-
-     public function login(Request $request)
-    {
-    	$dados = $request->all();    	
-        
-    	if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password']])){
-    		
-    		\Session::flash('mensagem',['msg'=>'Login realizado com sucesso!','class'=>'alert alert-success']);
-
-           	return redirect()->route('admin.dashboard');
-    	}
-
-    	\Session::flash('mensagem',['msg'=>'Erro! Confira seus dados!','class'=>'alert alert-danger']);
-
-    	return redirect()->route('admin.login');
-    }
-
+  
     public function sair(){
         Auth::logout();
         return redirect()->route('login');
     }
 
-    public function adicionar(){
-        return view('admin.login.registrar');
+    public function ExibirFormPerfil(){
+        
+        $titulo = 'Perfil Do Usuário';
+
+        $id_usuario = Auth::id();
+
+        $usuario = User::where('telefone', '<>', NULL)->first();
+
+        if($usuario->count() > 0){
+
+            return $this->editar($id_usuario);
+         
+        }
+
+        return view('admin.usuario.index', compact('titulo'));
     }
 
-    public function salvar(Request $request){
-        $dados = $request->all();
-        
-        $email = $dados['email'];
+    public function completarPerfil(Request $request){
+         
+         $id_usuario = Auth::id();   
+         $dados = $request->all();
+         $slug = str_slug($dados['nome'], '-');         
 
-        $nome = explode("@", $email);
+         $perfil = User::find($id_usuario);
 
-        $usuario = new User();
-        $usuario->name = $nome[0];
-        $usuario->email = $dados['email'];
-        $usuario->password = bcrypt($dados['password']);
-        $usuario->save();       
+         $perfil->name = $dados['nome'];        
+         $perfil->telefone = $dados['telefone'];
+         $perfil->cpf = isset($dados['cpf']) ? $dados['cpf'] : NULL;
+         $perfil->cnpj = isset($dados['cnpj']) ? $dados['cnpj'] : NULL;
+         $perfil->cep = $dados['cep'];
+         $perfil->estado = $dados['estado'];
+         $perfil->cidade = $dados['cidade'];
+         $perfil->endereco = $dados['endereco'];
+         $perfil->usuario_slug = $slug;
 
-        \Session::flash('mensagem',['msg'=>'Registro criado com sucesso! Você pode entrar no sistema','class'=>'alert alert-success']);
+         $perfil->update();
 
-        return redirect()->route('admin.login');
+         \Session::flash('mensagem',['msg'=>'Dados do Perfil atualizados com sucesso!','class'=>'alert alert-success']);
+
+         return redirect()->route('admin.perfil');
+    }
+
+    public function editar($id_usuario){
+    
+        $titulo = 'Editar Perfil';
+
+        $registro = User::find($id_usuario);
+  
+        return view('admin.usuario.editar', compact("titulo", "registro"));
+    
+   }
+
+    public function atualizar(Request $request, $id_perfil){
+     
+         $dados = $request->all();
+         $slug = str_slug($dados['nome'], '-');
+         
+         $perfil = User::find($id_perfil);
+
+         $perfil->name = $dados['nome'];
+         //$perfil->tipo = $dados['tipo'];
+         $perfil->telefone = $dados['telefone'];
+         $perfil->cpf = isset($dados['cpf']) ? $dados['cpf'] : NULL;
+         $perfil->cnpj = isset($dados['cnpj']) ? $dados['cnpj'] : NULL;
+         $perfil->cep = $dados['cep'];
+         $perfil->estado = $dados['estado'];
+         $perfil->cidade = $dados['cidade'];
+         $perfil->endereco = $dados['endereco'];
+         $perfil->usuario_slug = $slug;
+
+        $perfil->update();
+
+        \Session::flash('mensagem',['msg'=>'Dados do Perfil atualizados com sucesso!','class'=>'alert alert-success']);
+
+        return redirect()->route('admin.perfil');
     }
 }

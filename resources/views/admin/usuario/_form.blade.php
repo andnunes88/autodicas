@@ -16,7 +16,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" id="label-nome" for="nome">Nome:</label>
 						<div class="col-sm-10">          
-							<input type="text" class="form-control" id="nome" placeholder="Digite seu Nome" name="nome" value="{{ isset($registro->nome) ? $registro->nome : ''}}" required>
+							<input type="text" class="form-control" id="nome" placeholder="Digite seu Nome" name="nome" value="{{ isset($registro->name) ? $registro->name : ''}}" required>
 						</div>
 					</div>        
 
