@@ -8,23 +8,23 @@
 @section('imagem', asset('img/autodicas-social.png'))
 
 <style >
-    .link-ordenacao{
-        padding: 0 3px 10px;
-        font-size: 14px;
-        text-decoration: none;
+.link-ordenacao{
+    padding: 0 3px 10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+#div-categoria{
+    padding: 0;
+    margin: 0;
+}   
+
+@media only screen and (max-width: 600px) {
+
+    #breadcrumb{
+        display: none;
+
     }
-
-    #div-categoria{
-        padding: 0;
-        margin: 0;
-    }   
-
-    @media only screen and (max-width: 600px) {
-     
-        #breadcrumb{
-            display: none;
-
-        }
 }
 
 #filtro-categoria{
@@ -49,8 +49,8 @@
 }
 
 #filtro-categoria a{
-   color: #666;
-   text-decoration: none;
+ color: #666;
+ text-decoration: none;
 
 }
 
@@ -80,13 +80,13 @@ ul li{
 }
 
 .titulo-anuncio{
-     font-size: 20px;
-     margin: 0;
-     padding: 0;
+   font-size: 20px;
+   margin: 0;
+   padding: 0;
 }
 
 #banner-autodicas{
-    
+
     width: 728px;
     height: 90px;
     margin-bottom: 30px;
@@ -99,96 +99,93 @@ ul li{
 }
 
 </style>  
-      
-    <div id="banner-autodicas">
-        <img src="{{ asset('img/banners/anuncie_autodicas.png') }}" alt="">
-    </div>    
 
-    <div class="container">
+<div id="banner-autodicas">
+    <img src="{{ asset('img/banners/anuncie_autodicas.png') }}" alt="">
+</div>    
 
-        <div class="row">
-            <div class="col-md-12">
+<div class="container">
 
-                <ol class="breadcrumb">
-                    <li><a href="{{route('site.home')}}">Home</a></li>
-                    <li class="active">Todos os Produtos</li>
-                </ol>
+    <div class="row">
+        <div class="col-md-12">
 
-            </div>
+            <ol class="breadcrumb">
+                <li><a href="{{route('site.home')}}">Home</a></li>
+                <li class="active">Todos os Produtos</li>
+            </ol>
+
         </div>
+    </div>
 
-
-@include('layouts._site._filtro')
+    @include('layouts._site._filtro')
 
 </div>
 
-   <div class="container">        
-    
-        <div class="row-main">
-            
-            <div class="col-md-12" id="sidebar">
+<div class="container">        
 
-				
-				<h4> Anúncios </h4>			
-				
-                @foreach($registros as $anuncio)
+    <div class="row-main">
 
-				<a href="#" class="lista-produto">
-			  
-				   <div id="lista-produto" class="row borda">
-			   
-						<div class="col-xs-4 col-md-2 text-center">
-							<img src="#" width="160" height="160" alt="Imagem do produto"
-								class="img-rounded img-responsive img-list" />
-						</div>
+        <div class="col-md-12" id="sidebar">
 
-						<div class="col-xs-8 col-md-7 section-box">
-							
-							<h1 class="titulo-anuncio">{{$anuncio->titulo}}</h4>
 
-							</br>
-							
-							@if( $anuncio->valor == 0 )
-								<span id="preco">A Combinar</span>
-							@else
-								<span id="preco">R$ {{number_format($anuncio->valor,2,",",".")}}</span>
-							@endif
+            <h4> Anúncios </h4>			
 
-							<p class="info-loja">
-							   <strong>Descrição do Produto</strong><br>
-							   {{$anuncio->descricao}}
-							</p>
-						</div>
+            @foreach($registros as $anuncio)
 
-						<div class="col-xs-12 col-md-3 section-box">
-							<div class="row rating-desc">
-								<div class="col-md-12">
+            <a href="#" class="lista-produto">
 
-								   
-										<p><strong>Vendedor:</strong> Anderson </p>
-										<p class="info-loja"><strong>Local:</strong> Belford Roxo</p>
-										<p class="info-loja"><strong>Contato:</strong> </p>     								   
+             <div id="lista-produto" class="row borda">
 
-								</div>
-							</div>
-						</div>
+              <div class="col-xs-4 col-md-2 text-center">
+                 <img src="{{ asset($anuncio->imagem) }}" width="160" height="160" alt="Imagem do produto"
+                 class="img-rounded img-responsive img-list" />
+             </div>
 
-					</div>
+             <div class="col-xs-8 col-md-7 section-box">
 
-				</a>
+                 <h1 class="titulo-anuncio">{{$anuncio->titulo}}</h4>
 
-                @endforeach
-			   
-				
+                 </br>
 
-				{{-- $registros->appends(Request::only('order'))->links() --}}				
-				
-            </div>
+                 @if( $anuncio->valor == 0 )
+                 <span id="preco">A Combinar</span>
+                 @else
+                 <span id="preco">R$ {{number_format($anuncio->valor,2,",",".")}}</span>
+                 @endif
 
-        </div>
-		
-   </div>   
-   
+                 <p class="info-loja">
+                     <small> {{ $anuncio->usuario->estado }} - {{ $anuncio->usuario->cidade }}</small> <br>
+                     <small> {{ $anuncio->categoria->categoria_nome }}</small> 
+                 </p>
+             </div>
+
+             <div class="col-xs-12 col-md-3 section-box">
+                 <div class="row rating-desc">
+                    <div class="col-md-12">
+
+                       <p><strong>Vendedor:</strong> {{ $anuncio->usuario->name }} </p>
+                       <p class="info-loja"><strong>Local:</strong> {{ $anuncio->usuario->cidade }}</p>	   
+
+                   </div>
+               </div>
+           </div>
+
+       </div>
+
+   </a>
+
+   @endforeach
+
+
+
+   {{-- $registros->appends(Request::only('order'))->links() --}}				
+
+</div>
+
+</div>
+
+</div>   
+
 
 @endsection
 

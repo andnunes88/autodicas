@@ -1,4 +1,15 @@
 <?php
+Use App\Anuncio;
+
+Route::get('/teste', function(){
+
+	$anuncios = Anuncio::find(1)->first();
+
+	dd($anuncios->usuario);
+
+	return 'bla';
+
+});
 
 Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
@@ -22,11 +33,12 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::put('/admin/anuncios/atualizar/{id}',['as'=>'admin.anuncios.atualizar', 'uses'=>'Admin\AnuncioController@atualizar']);
 	Route::get('/admin/anuncios/detetar/{id}',['as'=>'admin.anuncios.deletar', 'uses'=>'Admin\AnuncioController@deletar']);	
 
+	/*Perfil do Usuário*/
 	Route::get('/usuario/perfil', 'Admin\UsuarioController@ExibirFormPerfil')->name('admin.perfil');
 	Route::get('/usuario/perfil/adicionar/', 'Admin\UsuarioController@adicionar')->name('admin.perfil.adicionar');
 	Route::post('/usuario/perfil/salvar/', 'Admin\UsuarioController@completarPerfil')->name('admin.perfil.salvar');
 	Route::get('/usuario/perfil/editar/{id_usuario}', 'Admin\UsuarioController@editarPerfil')->name('admin.perfil.editar');
 	Route::put('/usuario/perfil/atualizar/{id_perfil}', 'Admin\UsuarioController@atualizar')->name('admin.perfil.atualizar');
-	Route::get('/usuario/perfil/detetar/{id}', 'Admin\UsuarioController@deletar')->name('admin.perfil.deletar');
+	Route::get('/usuario/perfil/detetar/{id_usuario}', 'Admin\UsuarioController@deletar')->name('admin.perfil.deletar');
 	
 });
