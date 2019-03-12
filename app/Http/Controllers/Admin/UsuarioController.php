@@ -43,7 +43,7 @@ class UsuarioController extends Controller
 
         $usuario = User::where('telefone', '<>', NULL)->first();
 
-        if($usuario->count() > 0){
+        if(isset($usuario) && $usuario->count() > 0){
 
             return $this->editar($id_usuario);
          
