@@ -54,15 +54,22 @@
 
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="endereco">Estado:</label>
-						<div class="col-sm-10">          
-							<input type="text" class="form-control" id="estado" placeholder="Digite seu endereço" name="estado" value="{{ isset($registro->estado) ? $registro->estado : ''}}" required>
+						<div class="col-sm-10">
+							<select class="form-control" name="estado_id" id="estado_id">
+								@foreach ($estados as $estado)
+									<option value="{{$estado->id}}">{{$estado->estado_nome}}</option>
+								@endforeach								
+							</select>
 						</div>
+						
 					</div>
 
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="cidade">Cidade:</label>
-						<div class="col-sm-10">          
-							<input type="text" class="form-control" id="cidade" placeholder="Digite sua cidade" name="cidade" value="{{ isset($registro->cidade) ? $registro->cidade : ''}}" required>
+						<div class="col-sm-10">
+							<select class="form-control" name="cidade" id="cidades" disabled>
+															
+							</select>
 						</div>
 					</div> 
 
@@ -72,3 +79,4 @@
 							<input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço" name="endereco" value="{{ isset($registro->endereco) ? $registro->endereco : ''}}" required>
 						</div>
 					</div> 
+

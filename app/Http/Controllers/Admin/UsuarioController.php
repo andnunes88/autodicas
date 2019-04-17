@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use App\Estado;
+use App\Cidade;
 
 class UsuarioController extends Controller
 {
@@ -43,20 +45,23 @@ class UsuarioController extends Controller
 
         $usuario = User::where('telefone', '<>', NULL)->first();
 
+        $estados = Estado::all();
+        $cidades = Cidade::all();   
+
         if(isset($usuario) && $usuario->count() > 0){
 
             return $this->editar($id_usuario);
          
         }
 
-        return view('admin.usuario.index', compact('titulo'));
+        return view('admin.usuario.index', compact('titulo', 'estados', 'cidades'));
     }
 
     public function completarPerfil(Request $request){
          
          $id_usuario = Auth::id();   
          $dados = $request->all();
-         $slug = str_slug($dados['nome'], '-');         
+         $slug = str_slug($dados['nome'], '-');              
 
          $perfil = User::find($id_usuario);
 
@@ -110,5 +115,13 @@ class UsuarioController extends Controller
         \Session::flash('mensagem',['msg'=>'Dados do Perfil atualizados com sucesso!','class'=>'alert alert-success']);
 
         return redirect()->route('admin.perfil');
+    }
+
+    public function pegatarCidadesDoEstado($id_estado = NULL){
+        
+        $cidades = Cidade::where('estado_id', $id_estado)->get();
+        
+        return $cidades;
+
     }
 }

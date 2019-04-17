@@ -51,4 +51,9 @@
 
 	</style>
 
-	
+@push('js')
+    
+    <!-- ranking JS -->      
+    <script src="{{ asset('js/admin/perfil.js') }}"></script>    
+
+@endpush	
