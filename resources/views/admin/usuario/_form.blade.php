@@ -56,8 +56,9 @@
 						<label class="control-label col-sm-2" for="endereco">Estado:</label>
 						<div class="col-sm-10">
 							<select class="form-control" name="estado_id" id="estado_id">
+								
 								@foreach ($estados as $estado)
-									<option value="{{$estado->id}}">{{$estado->estado_nome}}</option>
+									<option value="{{$estado->id}}"> {{$estado->estado_nome}}</option>									
 								@endforeach								
 							</select>
 						</div>
@@ -67,7 +68,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="cidade">Cidade:</label>
 						<div class="col-sm-10">
-							<select class="form-control" name="cidade" id="cidades" disabled>
+							<select class="form-control" name="cidade_id" id="cidades_id" disabled>
 															
 							</select>
 						</div>

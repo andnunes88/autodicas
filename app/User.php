@@ -15,6 +15,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'estado_id',
+        'cidade_id',
         'name',
         'email',
         'password',
@@ -22,9 +24,7 @@ class User extends Authenticatable
         'telefone',
         'cpf',
         'cnpj',
-        'cep',
-        'estado',
-        'cidade',
+        'cep',        
         'endereco',
         'usuario_slug',
         'usuario_imagem'

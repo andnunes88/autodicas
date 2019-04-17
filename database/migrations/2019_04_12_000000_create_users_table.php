@@ -15,6 +15,13 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            
+            $table->integer('estado_id')->unsigned()->nullable();
+            $table->foreign('estado_id')->references('id')->on('estados');
+            
+            $table->integer('cidade_id')->unsigned()->nullable();
+            $table->foreign('cidade_id')->references('id')->on('cidades');
+
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
@@ -23,8 +30,6 @@ class CreateUsersTable extends Migration
             $table->string('cpf')->nullable();
             $table->string('cnpj')->nullable();
             $table->string('cep')->nullable();
-            $table->string('estado')->nullable();
-            $table->string('cidade')->nullable();
             $table->string('endereco')->nullable();
             $table->string('usuario_slug')->nullable();
             $table->string('usuario_imagem')->nullable();

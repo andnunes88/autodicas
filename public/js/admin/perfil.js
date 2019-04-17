@@ -11,9 +11,9 @@ $(function(){
 			dataType: "Json",
 			success: function(data){
 				
-				$("#cidades").removeAttr("disabled");
+				$("#cidades_id").removeAttr("disabled");
 				
-				var selectbox = $('#cidades');
+				var selectbox = $('#cidades_id');
 
 				selectbox.find('option').remove();
 

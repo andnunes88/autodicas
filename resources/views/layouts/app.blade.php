@@ -24,16 +24,10 @@
   <link rel="stylesheet" type="text/css" href="{{asset('css/menu.css')}}">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="{{asset('slick/slick.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('slick/slick-theme.css')}}">
-
   <link rel="stylesheet" type="text/css" href="{{asset('css/lightslider.css')}}">
-
-  <link rel="manifest" href="{{asset('manifest.json')}}">
 
   <!-- adsense do google-->
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
 
 <!--Metatags para facebook -->  
 <meta property="og:locale" content="pt_BR">
@@ -136,8 +130,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
 
 <script src="{{asset('js/main.js')}}"></script>
-
-<script src="{{asset('slick/slick.js')}}" type="text/javascript" charset="utf-8"></script>
 
 <script src="{{asset('js/lightslider.js')}}" type="text/javascript"></script>
 

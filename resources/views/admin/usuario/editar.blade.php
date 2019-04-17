@@ -68,3 +68,9 @@
 	</style>
 
 	
+@push('js')
+    
+    <!-- perfil JS -->      
+    <script src="{{ asset('js/admin/perfil.js') }}"></script>    
+
+@endpush	

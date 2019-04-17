@@ -45,8 +45,7 @@ class UsuarioController extends Controller
 
         $usuario = User::where('telefone', '<>', NULL)->first();
 
-        $estados = Estado::all();
-        $cidades = Cidade::all();   
+        $estados = Estado::all(); 
 
         if(isset($usuario) && $usuario->count() > 0){
 
@@ -70,8 +69,8 @@ class UsuarioController extends Controller
          $perfil->cpf = isset($dados['cpf']) ? $dados['cpf'] : NULL;
          $perfil->cnpj = isset($dados['cnpj']) ? $dados['cnpj'] : NULL;
          $perfil->cep = $dados['cep'];
-         $perfil->estado = $dados['estado'];
-         $perfil->cidade = $dados['cidade'];
+         $perfil->estado_id = $dados['estado_id'];
+         $perfil->cidade_id = $dados['cidade_id'];
          $perfil->endereco = $dados['endereco'];
          $perfil->usuario_slug = $slug;
 
@@ -87,8 +86,10 @@ class UsuarioController extends Controller
         $titulo = 'Editar Perfil';
 
         $registro = User::find($id_usuario);
+
+        $estados = Estado::all();
   
-        return view('admin.usuario.editar', compact("titulo", "registro"));
+        return view('admin.usuario.editar', compact("titulo", "registro", "estados"));
     
    }
 
@@ -105,8 +106,8 @@ class UsuarioController extends Controller
          $perfil->cpf = isset($dados['cpf']) ? $dados['cpf'] : NULL;
          $perfil->cnpj = isset($dados['cnpj']) ? $dados['cnpj'] : NULL;
          $perfil->cep = $dados['cep'];
-         $perfil->estado = $dados['estado'];
-         $perfil->cidade = $dados['cidade'];
+         $perfil->estado_id = $dados['estado_id'];
+         $perfil->cidade_id = $dados['cidade_id'];
          $perfil->endereco = $dados['endereco'];
          $perfil->usuario_slug = $slug;
 
@@ -117,7 +118,7 @@ class UsuarioController extends Controller
         return redirect()->route('admin.perfil');
     }
 
-    public function pegatarCidadesDoEstado($id_estado = NULL){
+    public function pegarCidadesDoEstado($id_estado = NULL){
         
         $cidades = Cidade::where('estado_id', $id_estado)->get();
         

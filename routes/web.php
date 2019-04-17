@@ -42,6 +42,6 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::get('/usuario/perfil/editar/{id_usuario}', 'Admin\UsuarioController@editarPerfil')->name('admin.perfil.editar');
 	Route::put('/usuario/perfil/atualizar/{id_perfil}', 'Admin\UsuarioController@atualizar')->name('admin.perfil.atualizar');
 	Route::get('/usuario/perfil/detetar/{id_usuario}', 'Admin\UsuarioController@deletar')->name('admin.perfil.deletar');
-	Route::get('/cidades/{id_estado?}', 'Admin\UsuarioController@pegatarCidadesDoEstado')->name('admin.cidades');
+	Route::get('/cidades/{id_estado?}', 'Admin\UsuarioController@pegarCidadesDoEstado')->name('admin.cidades');
 	
 });
