@@ -3,9 +3,9 @@ Use App\Anuncio;
 
 Route::get('/teste', function(){
 
-	$anuncios = Anuncio::find(1)->first();
+	$u = App\User::find(1)->first();
 
-	dd($anuncios->usuario);
+	dd($u->estado);
 
 	return 'bla';
 

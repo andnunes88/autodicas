@@ -131,7 +131,7 @@
                                     </a>
 
                                     <h3> {{$registro->usuario->name}} </h3>                                            
-                                    <p> Localização: <strong> {{$registro->usuario->cidade}} </strong></p>
+                                    <p> Localização: <strong> {{$registro->usuario->cidade->cidade_nome}} </strong></p>
                                     
                                     <a href="tel:#">                                  
                                         <button type="button" class="btn btn-primary btn-tel">
@@ -158,10 +158,10 @@
                 <h3 class="text-uppercase">Localização </h3>                   
 
                     <ul>
+                        <li><strong>CEP:</strong>       {{$registro->usuario->cep}}  </li>
+                        <li><strong>Estado:</strong>    {{$registro->usuario->estado->estado_nome}} </li>                       
+                        <li><strong>Cidade:</strong>    {{$registro->usuario->cidade->cidade_nome}} </li>
                         <li><strong>Endereço:</strong>  {{$registro->usuario->endereco}} </li>
-                        <li><strong>CEP:</strong>      {{$registro->usuario->cep}}  </li>                       
-                        <li><strong>Cidade:</strong>    {{$registro->usuario->cidade}} </li>
-                        <li><strong>Bairro:</strong>    {{$registro->usuario->bairro}} </li>
                     </ul>                    
 
             </div>
