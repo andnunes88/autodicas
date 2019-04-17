@@ -154,7 +154,7 @@ ul li{
                  @endif
 
                  <p class="info-loja">
-                     <small> {{ $anuncio->usuario->estado }} - {{ $anuncio->usuario->cidade }}</small> <br>
+                     <small> {{ $anuncio->usuario->estado->estado_nome }} - {{ $anuncio->usuario->cidade->cidade_nome }}</small> <br>
                      <small> {{ $anuncio->categoria->categoria_nome }}</small> 
                  </p>
              </div>
@@ -164,7 +164,7 @@ ul li{
                     <div class="col-md-12">
 
                        <p><strong>Vendedor:</strong> {{ $anuncio->usuario->name }} </p>
-                       <p class="info-loja"><strong>Local:</strong> {{ $anuncio->usuario->cidade }}</p>	   
+                       <p class="info-loja"><strong>Local:</strong> {{ $anuncio->usuario->cidade->cidade_nome }}</p>	   
 
                    </div>
                </div>
