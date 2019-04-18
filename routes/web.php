@@ -3,7 +3,7 @@ Use App\Anuncio;
 
 Route::get('/teste', function(){
 
-	$d = App\Estado::where('uf','RJ')->first();
+	$d = App\Cidade::where('id','3225')->first();
 
 	dd($d->anuncios);	
 
