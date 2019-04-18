@@ -123,8 +123,6 @@
                         <div class="panel-body text-center">
                             <div class="informacoes-loja">
                                 <div class="logo-loja">
-                                   
-                                   
 
                                     <a href="#">
                                         <img src="#" alt="#"> 
@@ -172,7 +170,7 @@
                         <div class="panel-heading">Dicas de segurança</div>
                         <div class="panel-body text-left">
                             <ul>
-                                <li class="dicas-seguranca"><i class="fas fa-check"></i> Ligue para Anunciante</li>
+                                <li class="dicas-seguranca"><i class="fas fa-check"></i> Ligue para o Anunciante</li>
                                 <li class="dicas-seguranca"><i class="fas fa-check"></i> Diga que viu no autodicas</li>
                                  <li class="dicas-seguranca"><i class="fas fa-check"></i> Confirme se tem o produto</li>
                                 <li class="dicas-seguranca"><i class="fas fa-check"></i> Confirme o preço</li>
@@ -186,7 +184,7 @@
              <div class="col-md-3">
                 <aside>
                     <div class="panel panel-default">
-                        <div class="panel-heading">Divulgar nas redes sociais</div>
+                        <div class="panel-heading">Compartilhar nas redes sociais</div>
 
                         <div id="panel-redes-sociais" class="panel-body text-left">
                             
