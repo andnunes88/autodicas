@@ -3,11 +3,9 @@ Use App\Anuncio;
 
 Route::get('/teste', function(){
 
-	$u = App\User::find(1)->first();
+	$d = App\Estado::where('uf','RJ')->first();
 
-	dd($u->estado);
-
-	return 'bla';
+	dd($d->anuncios);	
 
 });
 

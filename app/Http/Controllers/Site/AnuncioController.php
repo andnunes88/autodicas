@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Anuncio;
+use App\Categoria;
 
 class AnuncioController extends Controller
 {
@@ -12,8 +13,9 @@ class AnuncioController extends Controller
     public function index(){
         
         $registros = Anuncio::all();
+        $categorias = Categoria::all();
 
-    	return view('site.home', compact('registros'));
+    	return view('site.home', compact('registros','categorias'));
     }
 
     public function ads(){

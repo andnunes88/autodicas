@@ -58,9 +58,9 @@
                       <select name="categoria_id" class="form-control style input-lg-nomobile">
                         <option value="">Todas as categorias </option>
                             
-                            
-                              <option data-seo="#" value="#">###</option>  
-                                                                                    
+                            @foreach($categorias as $categoria)
+                              <option data-seo="#" value="{{$categoria->id}}">{{$categoria->categoria_nome}}</option>
+                            @endforeach                                                                                    
 
                       </select>
                       
