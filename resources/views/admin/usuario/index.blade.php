@@ -8,6 +8,7 @@
 		<ul class="nav nav-tabs">
 			<li><a href="{{route('admin.dashboard')}}">Area Pessoal</a></li>
 			<li><a href="{{route('admin.anuncios')}}">Meus Anúncios</a></li>
+			<li><a href="{{route('admin.planos')}}">Planos</a></li>
 			<li class="active"><a data-toggle="tab" href="#perfil">Editar Perfil</a></li>
 		</ul>
 
