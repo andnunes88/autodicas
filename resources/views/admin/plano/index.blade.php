@@ -45,12 +45,11 @@
 
 						<div class="col-md-12">
 							<h2 class="page-header"><i class="glyphicon glyphicon-th-list"></i> Quantos Anuncios quer divulgar ?</h2>
-							<small>Data: 22/04/2019</small>							
 
 						</div>
 
 						<div class="form-group">
-			                  <label for="quantidade_anuncio" class="col-sm-2 control-label">Escolha a quantidade de anúncios</label>
+			                  <label for="quantidade_anuncio" class="col-sm-2 control-label">Escolha a quantidade de Anúncios</label>
 
 			                  <div class="col-md-4">
 			                    <input type="number" class="form-control" id="quantidade_anuncio" placeholder="Ex: 10">
@@ -62,16 +61,29 @@
 					<div class="row">
 						
 						<div class="col-md-6">
-							<p>Formas de Pagamento</p>
-							Boleto
+							<label>Dados do Titular</label>
+							<div class="form-group">								
+								<input type="text" name="nome" class="form-control" placeholder="Nome*" required>
+							</div>	
+
+							<div class="form-group">
+								<input type="text" name="sobre_nome" class="form-control" placeholder="Sobre Nome*" required>
+							</div>	
+							
+							<div class="form-group">
+								<input type="" name="cpf_cnpj" class="form-control" placeholder="CPF/CNPJ do Titular*" required>	
+							</div>
+
+							
+							<p>Ao finalizar seu pagamento, você concorda com os <a href="#">Termos de Uso</a> do site e que sua assinatura é renovada automaticamente.</p>							
 						</div>
 
 						<div class="col-md-6">
-							<p>Valor a pagar</p>
+							<p>Resumo do pedido</p>
 							<div class="table-responsive">
 				            <table class="table">
 				              <tbody><tr>
-				                <th style="width:50%">Preço individual do anúncio</th>
+				                <th style="width:50%">Preço individual do anúncio:</th>
 				                <td>5,00 R$</td>
 				              </tr>
 				               <tr>
@@ -80,7 +92,7 @@
 				              </tr>
 
 				              <tr>
-				                <th>Total:</th>
+				                <th>Valor Total:</th>
 				                <td id="total_anuncio">0 R$</td>
 				              </tr>
 				            </tbody></table>
