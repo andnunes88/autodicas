@@ -41,82 +41,62 @@
 
 				<div id="home" class="tab-pane fade in active">
 
-					<img id="img-perfil" src="{{asset('img/coin.png')}}" alt="moeda">
-
-					<h3 id="txt-boas-vidas">Planos Autodicas</h3> <small>Venda Mais com mais anúncios</small>
-
 					<div class="row">
 
-						<div id="creditpanel">
-							<div class="row">
-								<div class="col-md-12 no-padding">
-									<div id="panel_packs">
+						<div class="col-md-12">
+							<h2 class="page-header"><i class="glyphicon glyphicon-th-list"></i> Quantos Anuncios quer divulgar ?</h2>
+							<small>Data: 22/04/2019</small>							
 
-										<div class="pack-box col-md-2 " >
-											<h3>Bronze</h3>
-											<div class="price-box">
-												<span class="big-3">20</span> R$
-											</div>
-											<div id="discount" class="big-4">&nbsp;</div>
-											<div class="big-5">10 Anúncios</div>
-											<div class="row">
-												<a class="col-md-12 btn btn-primary btn-shadow btn-block">
-													<span class="hide-active">Escolher</span>
-												</a>
-											</div>
-										</div>
-
-										<div class="pack-box col-md-2 " >
-											<h3>Prata</h3>
-											<div class="price-box">
-												<span class="big-3">50</span> R$
-											</div>
-											<div id="discount" class="big-4">+ 8%</div>
-											<div class="big-5">27 Anúncios</div>
-											<div class="row">
-												<a class="col-md-12 btn btn-primary btn-shadow btn-block">
-													<span class="hide-active">Escolher</span>
-												</a>
-											</div>
-										</div>
-
-
-										<div class="pack-box col-md-2 bestpack">
-											<h3>Ouro</h3>
-											<div class="price-box">
-												<span class="big-3">100</span> R$
-											</div>
-											<div id="discount" class="big-4">+ 20%</div>
-											<div class="big-5">60 Anúncios</div>
-											<div class="row">
-												<a class="col-md-12 btn btn-primary btn-shadow btn-block">
-													<span class="hide-active">Escolher</span>
-												</a>
-											</div>
-										</div>
-
-										<div class="pack-box col-md-2 " >
-											<h3>Diamante</h3>
-											<div class="price-box">
-												<span class="big-3">200</span> R$
-											</div>
-											<div id="discount" class="big-4">+ 30%</div>
-											<div class="big-5">130 Anúncios</div>
-											<div class="row">
-												<a class="col-md-12 btn btn-primary btn-shadow btn-block">
-													<span class="hide-active">Escolher</span>
-												</a>
-											</div>
-										</div>
-
-
-									</div>
-								</div>
-							</div>
 						</div>
 
+						<div class="form-group">
+			                  <label for="quantidade_anuncio" class="col-sm-2 control-label">Escolha a quantidade de anúncios</label>
+
+			                  <div class="col-md-4">
+			                    <input type="text" class="form-control" id="quantidade_anuncio" placeholder="Ex: 10">
+			                  </div>
+			            </div>
 						
-					</div>					
+					</div>	
+
+					<div class="row">
+						
+						<div class="col-md-6">
+							<p>Formas de Pagamento</p>
+							Boleto
+						</div>
+
+						<div class="col-md-6">
+							<p>Valor a pagar</p>
+							<div class="table-responsive">
+				            <table class="table">
+				              <tbody><tr>
+				                <th style="width:50%">Preço individual do anúncio</th>
+				                <td>5,00 R$</td>
+				              </tr>
+				               <tr>
+				                <th>Quantidade de Anuncio:</th>
+				                <td id="qdt_anuncio">0</td>
+				              </tr>
+
+				              <tr>
+				                <th>Total:</th>
+				                <td id="total_anuncio">0 R$</td>
+				              </tr>
+				            </tbody></table>
+				          </div>
+						</div>
+
+					</div>	
+
+					<div class="col-xs-12">
+
+
+			          
+			          <button type="button" class="btn btn-success pull-right"><i class="glyphicon glyphicon-barcode"></i> Gerar Boleto
+			          </button>
+
+			        </div>			
 
 				</div>
 
@@ -130,5 +110,11 @@
 
 </div>
 
-
 @endsection
+
+@push('js')
+    
+    <!-- plano JS -->      
+    <script src="{{ asset('js/admin/planos.js') }}"></script>    
+
+@endpush	
