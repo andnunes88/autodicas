@@ -53,7 +53,7 @@
 			                  <label for="quantidade_anuncio" class="col-sm-2 control-label">Escolha a quantidade de anúncios</label>
 
 			                  <div class="col-md-4">
-			                    <input type="text" class="form-control" id="quantidade_anuncio" placeholder="Ex: 10">
+			                    <input type="number" class="form-control" id="quantidade_anuncio" placeholder="Ex: 10">
 			                  </div>
 			            </div>
 						
