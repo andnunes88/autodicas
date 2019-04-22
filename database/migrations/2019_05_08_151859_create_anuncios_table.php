@@ -25,7 +25,7 @@ class CreateAnunciosTable extends Migration
             $table->string('imagem')->nullable();
             $table->string('anuncio_slug')->nullable();
             $table->integer('relevancia')->nullable();
-            $table->integer('status')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

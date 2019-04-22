@@ -34,8 +34,8 @@
 					<thead>
 						<tr>
 							<th>Título</th>
-							<th>Descrição</th>
 							<th>Preço</th>
+							<th>Status</th>
 							<th>Ação</th>
 						</tr>
 					</thead>
@@ -44,12 +44,12 @@
 						@foreach($registros as $registro)
 
 						<tr>
-							<td>{{$registro->titulo}}</td>
-							<td>{{$registro->descricao}}</td>
+							<td>{{$registro->titulo}}</td>							
 							<td>{{$registro->valor}}</td>
+							<td><span class="label label-{{$registro->status == 'ativo' ? 'success' : 'danger'}}">{{$registro->status}}</span></td>
 							<td> 
-								<a href="{{route('admin.anuncios.editar', $registro->id)}}"> Editar </a> | 
-								<a href="javascript: if(confirm('Deletar esse registro?')){ window.location.href = '{{ route('admin.anuncios.deletar', $registro->id) }}' }"> Excluir </a></td>								
+								<a href="{{route('admin.anuncios.editar', $registro->id)}}" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </a> 
+								<a href="javascript: if(confirm('Deletar esse registro?')){ window.location.href = '{{ route('admin.anuncios.deletar', $registro->id) }}' }" class="btn btn-danger"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </a></td>								
 							
 						</tr>
 
