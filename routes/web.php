@@ -1,13 +1,8 @@
 <?php
 Use App\Anuncio;
 
-Route::get('/teste', function(){
 
-	$d = App\Cidade::where('id','3225')->first();
-
-	dd($d->anuncios);	
-
-});
+Route::get('/teste', 'Admin\PagSeguroController@getCode')->name('codigo');
 
 Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
@@ -42,8 +37,12 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::get('/usuario/perfil/detetar/{id_usuario}', 'Admin\UsuarioController@deletar')->name('admin.perfil.deletar');
 	Route::get('/cidades/{id_estado?}', 'Admin\UsuarioController@pegarCidadesDoEstado')->name('admin.cidades');
 
-	/* Planos */
-	Route::get('/planos', 'Admin\PlanoController@index')->name('admin.planos');
+	/* Carrinho */
+	Route::get('/cart', 'Admin\CartController@index')->name('admin.cart');
+	Route::post('/cart/checkout', 'Admin\CartController@getPedido')->name('admin.cart.checkout');
+	Route::post('/boleto/codigo', 'Admin\CartController@getCode')->name('admin.boleto.codigo');
+	Route::post('/boleto', 'Admin\PagSeguroController@billet')->name('pagseguro.boleto');
+	Route::get('/historico-compra', 'Admin\CartController@historico')->name('admin.historico');
 
 	
 });

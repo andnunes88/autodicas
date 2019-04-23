@@ -59,6 +59,7 @@ class AnuncioController extends Controller
 
         $anuncio->anuncio_slug =  $slug;
         $anuncio->relevancia = 0;
+        $anuncio->status = 'ativo';
 
         $anuncio->save();
 
