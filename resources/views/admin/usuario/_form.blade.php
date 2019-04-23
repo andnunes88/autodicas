@@ -30,25 +30,22 @@
 					<div class="form-group">
 						<label class="control-label col-sm-2" id="titulo-cpf-cnpj" for="cpf-cpnj">CPF/CNPJ</label>
 						<div class="col-sm-10">  
-
-							<input type="text" class="form-control" id="cpf-cnpj" placeholder="Digite seu CNPJ ou CPF" name="cpf"
-								@if( isset($registro->cpf) )
+							<input type="text" class="form-control" id="cpfcnpj" name="cpf-cnpj" placeholder="Digite seu CNPJ ou CPF" disabled
+							@if(isset($registro->cpf))
 								    value="{{$registro->cpf}}";
 								@elseif (isset($registro->cnpj))
 								    value="{{$registro->cnpj}}";
 								@else
 								    value="";
 								@endif
-
-								>
-
+							>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="cep">CEP:</label>
 						<div class="col-sm-10">          
-							<input type="text" class="form-control" id="cep" placeholder="Digie seu CEP" name="cep" value="{{ isset($registro->cep) ? $registro->cep : ''}}" required>
+							<input type="text" class="form-control" id="cep" placeholder="Digite seu CEP" name="cep" value="{{ isset($registro->cep) ? $registro->cep : ''}}" required>
 						</div>
 					</div>
 
@@ -81,3 +78,11 @@
 						</div>
 					</div> 
 
+
+@push('js')
+    
+    <!-- perfil JS -->      
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>   
+	<script src="{{ asset('js/admin/perfil.js') }}"></script>
+
+@endpush

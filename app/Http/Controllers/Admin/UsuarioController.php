@@ -63,6 +63,8 @@ class UsuarioController extends Controller
          $slug = str_slug($dados['nome'], '-');              
 
          $perfil = User::find($id_usuario);
+            
+        
 
          $perfil->name = $dados['nome'];        
          $perfil->telefone = $dados['telefone'];
