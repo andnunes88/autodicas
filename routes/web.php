@@ -40,8 +40,12 @@ Route::group(['middleware'=>'auth'], function(){
 	/* Carrinho */
 	Route::get('/cart', 'Admin\CartController@index')->name('admin.cart');
 	Route::post('/cart/checkout', 'Admin\CartController@getPedido')->name('admin.cart.checkout');
-	Route::post('/boleto/codigo', 'Admin\CartController@getCode')->name('admin.boleto.codigo');
-	Route::post('/boleto', 'Admin\PagSeguroController@billet')->name('pagseguro.boleto');
+		
+	/* teste pagseguro */
+	Route::post('/pagseguro-billet', 'Admin\PagSeguroController@billet')->name('pagseguro.billet');
+	Route::post('pagseguro-transparente', 'Admin\PagSeguroController@getCode')->name('pagseguro.code.transparente');
+	Route::get('pagseguro-transparente', 'Admin\PagSeguroController@transparente')->name('pagseguro.transparente');
+
 	Route::get('/historico-compra', 'Admin\CartController@historico')->name('admin.historico');
 
 	

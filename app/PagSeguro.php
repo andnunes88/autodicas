@@ -51,7 +51,7 @@ class PagSeguro extends Model
             'senderName' => 'Jose Comprador',
             'senderAreaCode' => '99',
             'senderPhone' => '99999999',
-            'senderEmail' => 'c11694295081760608605@sandbox.pagseguro.com.br',
+            'senderEmail' => 'c60032373166157921625@sandbox.pagseguro.com.br',
             'senderCPF' => '54793120652',
             'shippingType' => '1',
             'shippingAddressStreet' => 'Av. PagSeguro',

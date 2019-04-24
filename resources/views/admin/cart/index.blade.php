@@ -27,7 +27,7 @@
 						</div>
 						
 						<!--// Form -->
-						<form method="POST" action="{{route('admin.cart.checkout')}}">
+						<form id="form" method="POST" action="{{route('admin.cart.checkout')}}">
 
 							{{ csrf_field() }}
 
@@ -128,42 +128,22 @@
             
             function setSessionId()
             {
-                var data = $('#form').serialize();
-                
+                var data = $('#form').serialize();                
+
                 $.ajax({
-                    url: "{{route('admin.boleto.codigo')}}",
+                    url: "{{route('pagseguro.code.transparente')}}",
                     method: "POST",
                     data: data
                 }).done(function(data){
-                    PagSeguroDirectPayment.setSessionId(data);
-                    
-                    //getPaymentMethods();
-                    
-                    //paymentBillet();
+
+                    PagSeguroDirectPayment.setSessionId(data);                    
+                                   
+                    paymentBillet();
                 }).fail(function(){
-                    alert("Fail request... :-(");
+                    alert("Bla 1 Fail request... :-(");
                 });
-            }
-            
-            function getPaymentMethods()
-            {
-                PagSeguroDirectPayment.getPaymentMethods({
-                    success: function(response){
-                        console.log(response);
-                        if( response.error == false ) {
-                            $.each(response.paymentMethods, function(key, value){
-                                $('.payments-methods').append(key+"<br>");
-                            });
-                        }
-                    },
-                    error: function(response){
-                        console.log(response);
-                    },
-                    complete: function(response){
-                        //console.log(response);
-                    }
-                });
-            }
+            }       
+
             
             function paymentBillet()
             {
@@ -172,15 +152,15 @@
                 var data = $('#form').serialize()+"&sendHash="+sendHash;
                 
                 $.ajax({
-                    url: "{{route('pagseguro.boleto')}}",
+                    url: "{{route('pagseguro.billet')}}",
                     method: "POST",
                     data: data
                 }).done(function(url){
-                    //console.log(data);
+                    console.log(data);
                     
                     location.href=url;
                 }).fail(function(){
-                    alert("Fail request... :-(");
+                    alert("Bla 2 Fail request... :-(");
                 });
             }
         </script>

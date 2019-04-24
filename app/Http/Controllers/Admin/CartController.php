@@ -28,11 +28,17 @@ class CartController extends Controller
 
     	$PagSeguro = new PagSeguro();
 
-    	$dados =  $request->all();
+    	//$dados =  $request->all();
 		
 		return $PagSeguro->getSessionId();
 
     	//return $dados;
+
+    }
+
+    public function billet(PagSeguro $pagseguro){
+
+        return $pagseguro->paymentBillet($sendHash);
 
     }
 }
