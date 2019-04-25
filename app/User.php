@@ -26,6 +26,8 @@ class User extends Authenticatable
         'cnpj',
         'cep',        
         'endereco',
+        'numero',
+        'complemento',
         'usuario_slug',
         'usuario_imagem'
     ];

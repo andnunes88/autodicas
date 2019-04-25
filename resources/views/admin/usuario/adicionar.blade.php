@@ -16,7 +16,7 @@
 
 			<div id="perfil" class="tab-pane fade in active">
 
-				<h2>Cadastrar Perfil</h2>
+				<h2>Completar Perfil</h2>
 				<form class="form-horizontal" action="{{ route('admin.perfil.salvar') }}" method="post">
 
 					{{ csrf_field() }}

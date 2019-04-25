@@ -51,7 +51,7 @@
 
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="endereco">Estado:</label>
-						<div class="col-sm-10">
+						<div class="col-sm-4">
 							<select class="form-control" name="estado_id" id="estado_id">
 								
 								@foreach ($estados as $estado)
@@ -59,23 +59,35 @@
 								@endforeach								
 							</select>
 						</div>
-						
-					</div>
 
-					<div class="form-group">
 						<label class="control-label col-sm-2" for="cidade">Cidade:</label>
-						<div class="col-sm-10">
+						<div class="col-sm-4">
 							<select class="form-control" name="cidade_id" id="cidades_id" disabled>
 															
 							</select>
 						</div>
-					</div> 
+						
+					</div>
+			
 
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="cidade">Endereço:</label>
-						<div class="col-sm-10">          
-							<input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço" name="endereco" value="{{ isset($registro->endereco) ? $registro->endereco : ''}}" required>
+						<div class="col-sm-6">          
+							<input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço" name="endereco" value="{{ isset($registro->endereco) ? $registro->endereco : ''}}" required>			
+						</div>	
+
+						<label class="control-label col-sm-2" for="numero">Número:</label>
+						<div class="col-sm-2">          
+							<input type="text" class="form-control" id="numero" placeholder="Digite seu Número" name="numero" value="{{ isset($registro->numero) ? $registro->numero : ''}}" required>			
 						</div>
+					</div> 
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="complemento">Complemento:</label>
+						<div class="col-sm-6">          
+							<input type="text" class="form-control" id="complemento" placeholder="Digite seu complemento" name="complemento" value="{{ isset($registro->complemento) ? $registro->complemento : ''}}" >			
+						</div>
+
 					</div> 
 
 

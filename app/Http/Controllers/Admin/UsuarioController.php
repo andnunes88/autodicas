@@ -62,8 +62,7 @@ class UsuarioController extends Controller
          $dados = $request->all();
          $slug = str_slug($dados['nome'], '-');              
 
-         $perfil = User::find($id_usuario);
-            
+         $perfil = User::find($id_usuario);          
         
 
          $perfil->name = $dados['nome'];        
@@ -74,6 +73,8 @@ class UsuarioController extends Controller
          $perfil->estado_id = $dados['estado_id'];
          $perfil->cidade_id = $dados['cidade_id'];
          $perfil->endereco = $dados['endereco'];
+         $perfil->numero = $dados['numero'];
+         $perfil->complemento = $dados['complemento'];
          $perfil->usuario_slug = $slug;
 
          $perfil->update();
@@ -103,7 +104,7 @@ class UsuarioController extends Controller
          $perfil = User::find($id_perfil);
 
          $perfil->name = $dados['nome'];
-         //$perfil->tipo = $dados['tipo'];
+        
          $perfil->telefone = $dados['telefone'];
          $perfil->cpf = isset($dados['cpf']) ? $dados['cpf'] : NULL;
          $perfil->cnpj = isset($dados['cnpj']) ? $dados['cnpj'] : NULL;
@@ -111,6 +112,8 @@ class UsuarioController extends Controller
          $perfil->estado_id = $dados['estado_id'];
          $perfil->cidade_id = $dados['cidade_id'];
          $perfil->endereco = $dados['endereco'];
+         $perfil->numero = $dados['numero'];
+         $perfil->complemento = $dados['complemento'];
          $perfil->usuario_slug = $slug;
 
         $perfil->update();
