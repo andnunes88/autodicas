@@ -44,14 +44,12 @@
 					
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="cep">CEP:</label>
-						<div class="col-sm-10">          
+						<div class="col-sm-2">          
 							<input type="text" class="form-control" id="cep" placeholder="Digite seu CEP" name="cep" value="{{ isset($registro->cep) ? $registro->cep : ''}}" required>
 						</div>
-					</div>
 
-					<div class="form-group">
 						<label class="control-label col-sm-2" for="endereco">Estado:</label>
-						<div class="col-sm-4">
+						<div class="col-sm-2">
 							<select class="form-control" name="estado_id" id="estado_id">
 								
 								@foreach ($estados as $estado)
@@ -61,13 +59,13 @@
 						</div>
 
 						<label class="control-label col-sm-2" for="cidade">Cidade:</label>
-						<div class="col-sm-4">
+						<div class="col-sm-2">
 							<select class="form-control" name="cidade_id" id="cidades_id" disabled>
 															
 							</select>
 						</div>
-						
-					</div>
+
+					</div>			
 			
 
 					<div class="form-group">

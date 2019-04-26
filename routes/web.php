@@ -39,7 +39,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 	/* Carrinho */
 	Route::get('/cart', 'Admin\CartController@index')->name('admin.cart');
-	Route::post('/cart/checkout', 'Admin\CartController@getPedido')->name('admin.cart.checkout');
+	Route::post('/cart/checkout', 'Admin\CartController@checkout')->name('admin.cart.checkout');
 		
 	/* teste pagseguro */
 	Route::post('/pagseguro-billet', 'Admin\PagSeguroController@billet')->name('pagseguro.billet');

@@ -24,6 +24,10 @@ class CartController extends Controller
     	return view('admin.cart.historico', compact('titulo')); 
     }
 
+    public function checkout(){
+        return view('cart.checkout');
+    }
+
     public function getPedido(Request $request){
 
     	$PagSeguro = new PagSeguro();

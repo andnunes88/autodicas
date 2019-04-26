@@ -2,6 +2,14 @@
 
 @section('content')
 
+<style type="text/css">
+	
+	#total_anuncio{
+		font-size:36px;
+	}
+
+</style>
+
 <div class="container">    
 
 	<div class="row">
@@ -23,7 +31,6 @@
 
 						<div class="col-md-12">
 							<h2 class="page-header"><i class="glyphicon glyphicon-th-list"></i> Quantos Anuncios quer divulgar ?</h2>
-
 						</div>
 						
 						<!--// Form -->
@@ -31,36 +38,20 @@
 
 							{{ csrf_field() }}
 
-							<div class="form-group">
-				                  <label for="quantidade_anuncio" class="col-sm-2 control-label">Escolha a quantidade de Anúncios</label>
+							<div class="form-group">				                  
 
-				                  <div class="col-md-4">
+				                  <div class="col-md-3">
+				                  	<img src="{{asset('img/ads.png')}}">
+				                  </div>
+
+				                  <label for="quantidade_anuncio" class="col-sm-3 control-label">Escolha a quantidade de Anúncios</label>
+
+				                  <div class="col-md-6"> 			                  	
+
 				                    <input type="number" name="quantidade_anuncio" class="form-control" id="quantidade_anuncio" placeholder="Ex: 10" required>
 				                  </div>
+				                  
 				            </div>
-						
-					</div>	
-
-					<div class="row">
-
-						
-							<div class="col-md-6">
-								<label>Dados do Titular</label>
-								<div class="form-group">								
-									<input type="text" name="nome" class="form-control" placeholder="Nome*" required>
-								</div>	
-
-								<div class="form-group">
-									<input type="text" name="sobre_nome" class="form-control" placeholder="Sobre Nome*" required>
-								</div>	
-								
-								<div class="form-group">
-									<input type="" name="cpf_cnpj" class="form-control" placeholder="CPF/CNPJ do Titular*" required>	
-								</div>
-
-								
-								<p>Ao finalizar seu pagamento, você concorda com os <a href="#">Termos de Uso</a> do site e que sua assinatura é renovada automaticamente.</p>							
-							</div>
 
 							<div class="col-md-6">
 								<p>Resumo do pedido</p>
@@ -85,13 +76,15 @@
 
 							<div class="col-xs-12">
 				          
-					          	<button type="button" id="btn-finalizar" class="btn btn-success pull-right"><i class="glyphicon glyphicon-barcode"></i> Gerar Boleto
+					          	<button type="button" id="btn-finalizar" class="btn btn-success pull-right">Finalizar Compra
 					          	</button>
 
 				        	</div>	
 
 			        	<!--// Form -->
 			        	</form>
+
+			        	</div>	
 
 					</div>								
 
