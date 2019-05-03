@@ -44,7 +44,9 @@
 						@foreach($registros as $registro)
 
 						<tr>
-							<td>{{$registro->titulo}}</td>							
+							<td>{{$registro->titulo}} 
+								<div><small>{{ date('d/m/Y', strtotime($registro->expira)) }}</small></div>
+							</td>							
 							<td>{{$registro->valor}}</td>
 							<td><span class="label label-{{$registro->status == 'ativo' ? 'success' : 'danger'}}">{{$registro->status}}</span></td>
 							<td> 

@@ -17,7 +17,8 @@ class AnuncioController extends Controller
 
         $usuario_id = Auth::id();
 
-        $registros = Anuncio::where('usuario_id', $usuario_id)->get();       
+        $registros = $this->verificaAnuncioExpirou($usuario_id);       
+        //$registros = Anuncio::where('usuario_id', $usuario_id)->get();
 
         return view('admin.anuncio.index', compact("titulo", "registros"));
     }
@@ -60,6 +61,7 @@ class AnuncioController extends Controller
         $anuncio->anuncio_slug =  $slug;
         $anuncio->relevancia = 0;
         $anuncio->status = 'ativo';
+        $anuncio->expira = date('Y-m-d H:m:s', strtotime('+1 month'));
 
         $anuncio->save();
 
@@ -125,5 +127,29 @@ class AnuncioController extends Controller
         \Session::flash('mensagem',['msg'=>'Registro deletado com sucesso!','class'=>'alert alert-success']);
 
         return redirect()->route('admin.anuncios');
+    }
+
+    public function verificaAnuncioExpirou($usuario_id){
+
+        $data_atual = date('Y-m-d');
+
+        $registros = Anuncio::where('usuario_id', $usuario_id)->get();
+
+        if($registros->count() > 0){
+            
+            foreach ($registros as $registro) {
+                
+                if($data_atual  > $registro->expira){
+
+                    $registro->status = 'expirado';
+
+                    \Session::flash('mensagem',['msg'=>'Seus anúncios expirados podem ser renovados','class'=>'alert alert-danger']);
+                }   
+
+            }
+            
+        }
+
+        return $registros;        
     }
 }

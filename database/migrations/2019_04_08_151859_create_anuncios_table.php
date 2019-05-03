@@ -27,6 +27,8 @@ class CreateAnunciosTable extends Migration
             $table->integer('relevancia')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
+            $table->timestamps('expira');
+
         });
     }
 
