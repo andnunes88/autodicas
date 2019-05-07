@@ -26,8 +26,11 @@ class CreateAnunciosTable extends Migration
             $table->string('anuncio_slug')->nullable();
             $table->integer('relevancia')->nullable();
             $table->string('status')->nullable();
-            $table->timestamps();
-            $table->timestamps('expira');
+            $table->boolean('ativo')->nullable();;
+            $table->boolean('habilitado')->nullable();;
+            $table->boolean('spam')->nullable();;
+            $table->dateTime('expira');           
+            $table->timestamps();            
 
         });
     }
