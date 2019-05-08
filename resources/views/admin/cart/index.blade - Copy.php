@@ -27,29 +27,62 @@
 
 				<div id="home" class="tab-pane fade in active">
 
-						<div class="row">
+					<div class="row">
 
-							<div class="col-md-12">
-								<h2 class="page-header"><i class="glyphicon glyphicon-th-list"></i> Quer inserir vários anúncios?</h2>
+						<div class="col-md-12">
+							<h2 class="page-header"><i class="glyphicon glyphicon-th-list"></i> Quantos Anuncios quer divulgar ?</h2>
+						</div>
+						
+						<!--// Form -->
+						<form id="form" method="POST" action="{{route('admin.cart.checkout')}}">
+
+							{{ csrf_field() }}
+
+							<div class="form-group">				                  
+
+				                  <div class="col-md-3">
+				                  	<img src="{{asset('img/ads.png')}}">
+				                  </div>
+
+				                  <label for="quantidade_anuncio" class="col-sm-3 control-label">Escolha a quantidade de Anúncios</label>
+
+				                  <div class="col-md-6"> 			                  	
+
+				                    <input type="number" name="quantidade_anuncio" class="form-control" id="quantidade_anuncio" placeholder="Ex: 10" required>
+				                  </div>
+				                  
+				            </div>
+
+							<div class="col-md-6">
+								<p>Resumo do pedido</p>
+								<div class="table-responsive">
+					            <table class="table">
+					              <tbody><tr>
+					                <th style="width:50%">Preço individual do anúncio:</th>
+					                <td>5,00 R$</td>
+					              </tr>
+					               <tr>
+					                <th>Quantidade de Anuncio:</th>
+					                <td id="qdt_anuncio">0</td>
+					              </tr>
+
+					              <tr>
+					                <th>Valor Total:</th>
+					                <td id="total_anuncio">0 R$</td>
+					              </tr>
+					            </tbody></table>
+					          </div>
 							</div>
 
-							<div class="col-md-12">
+							<div class="col-xs-12">
+				          
+					          	<button type="button" id="btn-finalizar" class="btn btn-success pull-right">Finalizar Compra
+					          	</button>
 
-								@foreach($produtos as $produto)
-								
-								<div class="col-md-4">
-									<h1>{{$produto->nome}}</h1>
-									<p>{{$produto->descricao}}</p>
-									<p>{{$produto->quantidade}}</p>
-									<h2>R$: {{number_format($produto->preco,2,",",".")}}</h2>
-									<a href="{{route('admin.cart.checkout',$produto->id)}}"><button>Comprar</button></a>
-								</div>
+				        	</div>	
 
-								@endforeach
-								
-								
-							</div>					
-			
+			        	<!--// Form -->
+			        	</form>
 
 			        	</div>	
 
@@ -107,7 +140,7 @@
             
             function paymentBillet()
             {
-                var sendHash = PagSeguroDirectPayment.onSenderHashReady();
+                var sendHash = PagSeguroDirectPayment.getSenderHash();
                 
                 var data = $('#form').serialize()+"&sendHash="+sendHash;
                 

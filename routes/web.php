@@ -1,9 +1,6 @@
 <?php
 Use App\Anuncio;
 
-
-Route::get('/teste', 'Admin\PagSeguroController@getCode')->name('codigo');
-
 Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
 #Site
@@ -39,7 +36,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 	/* Carrinho */
 	Route::get('/cart', 'Admin\CartController@index')->name('admin.cart');
-	Route::post('/cart/checkout', 'Admin\CartController@checkout')->name('admin.cart.checkout');
+	Route::get('/cart/checkout/{id_produto}', 'Admin\CartController@checkout')->name('admin.cart.checkout');
 		
 	/* teste pagseguro */
 	Route::post('/pagseguro-billet', 'Admin\PagSeguroController@billet')->name('pagseguro.billet');
