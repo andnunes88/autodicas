@@ -46,7 +46,7 @@ class AnuncioController extends Controller
         $anuncio->categoria_id = $dados['categoria'];
         $anuncio->titulo = $dados['titulo'];
         $anuncio->descricao = $dados['descricao'];
-        $anuncio->valor = $dados['valor'];
+        $anuncio->valor = str_replace(',', '.', str_replace('.', '', $dados['valor']));
         
         $file = $request->file('imagem');        
         if($file){
