@@ -5,8 +5,7 @@ Use App\EstatisticaAnuncio;
 Route::get('/teste', function(){
 
 	$anuncios = Anuncio::with(['estatistica'])->where('usuario_id', 1)->get();
-    return $anuncios->toJson();
-    //dd($anuncios);
+    return $anuncios->toJson(); 
 	
 });
 

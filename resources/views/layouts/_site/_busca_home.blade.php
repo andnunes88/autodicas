@@ -5,7 +5,7 @@
 			<div class="col-xl-10">
 				<div class="text-center">
 					<h1>autodicas.com</h1>
-					<p>Encontre a peça do seu veículo</p>
+					<p>Encontre peças e serviços para seu veículo em nossas lojas VIP</p>
 				</div>
 				<div class="search-bar">
 					<form action="{{route('busca')}}">
