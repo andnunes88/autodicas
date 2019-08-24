@@ -81,7 +81,9 @@
             <li class="active">Detalhe</li>
         </ol>
     </div>
-         
+</div>
+
+<div class="container">         
     <div class="row">
         
 		<h1 class="produto-titulo">{{$registro->titulo}}</h1>
@@ -123,11 +125,7 @@
                         <div class="panel-body text-center">
                             <div class="informacoes-loja">
                                 <div class="logo-loja">
-
-                                    <a href="#">
-                                        <img src="#" alt="#"> 
-                                    </a>
-
+                                  
                                     <h3> {{$registro->usuario->name}} </h3>                                            
                                     <p> Localização: <strong> {{$registro->usuario->cidade->cidade_nome}} </strong></p>
                                     

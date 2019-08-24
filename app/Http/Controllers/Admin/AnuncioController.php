@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Categoria;
 use App\Anuncio;
 use Auth;
+use App\EstatisticaAnuncio;
 
 class AnuncioController extends Controller
 {
@@ -18,8 +19,7 @@ class AnuncioController extends Controller
         $usuario_id = Auth::id();
 
         $registros = $this->verificaAnuncioExpirou($usuario_id);       
-        //$registros = Anuncio::where('usuario_id', $usuario_id)->get();
-
+        
         return view('admin.anuncio.index', compact("titulo", "registros"));
     }
 
@@ -152,4 +152,5 @@ class AnuncioController extends Controller
 
         return $registros;        
     }
+    
 }

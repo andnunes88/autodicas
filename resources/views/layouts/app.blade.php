@@ -98,6 +98,7 @@
   <ul class="list quicklinks link-rodape" style="list-style: none">
     <li><a href="#">Contatos</a></li>
      <li><a href="#">Regras</a></li>
+     <li><a href="#">Termo de Uso</a></li>
  </ul>
 </div>
 

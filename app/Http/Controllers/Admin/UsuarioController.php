@@ -4,10 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Auth;
 use App\User;
 use App\Estado;
 use App\Cidade;
+use App\EstatisticaAnuncio;
+use App\Anuncio;
 
 class UsuarioController extends Controller
 {
@@ -15,8 +18,14 @@ class UsuarioController extends Controller
     public function index(){
 
     	$titulo = "Dashboard";
-    	
-    	return view('admin.index', compact('titulo'));
+        
+        $id = Auth::id();
+
+    	$total_produtos = Anuncio::where('usuario_id',$id)->get();
+
+        $totalVisualizacao = $this->totalVisualizacao();
+
+        return view('admin.index', compact('titulo','total_produtos','totalVisualizacao'));
 
     }
 
@@ -128,6 +137,23 @@ class UsuarioController extends Controller
         $cidades = Cidade::where('estado_id', $id_estado)->get();
         
         return $cidades;
+
+    }
+
+    public function totalVisualizacao(){
+        
+        $id_usuario = Auth::id(); 
+        
+        $query = DB::table('users')
+            ->select(DB::raw('SUM(visualizacao) AS total'))
+            ->join('anuncios', 'anuncios.usuario_id', '=', 'users.id')
+            ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
+            ->where('users.id', $id_usuario)
+            ->get();
+
+        $totalVisualizacao = $query[0]->total;
+
+        return $totalVisualizacao;
 
     }
 }

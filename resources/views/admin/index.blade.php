@@ -41,33 +41,30 @@
 
 				<div id="home" class="tab-pane fade in active">
 
-					<img id="img-perfil" src="{{asset('img/coin.png')}}" alt="moeda">
-
+					
 					<h3 id="txt-boas-vidas">Olá {{Auth::user()->name}} Bem-vindo à sua área pessoal.</h3>
 
 					<div class="row">
 						<div class="col-md-4">
 
-							<h2>12</h2>
+							<h2>{{isset($totalVisualizacao) ? $totalVisualizacao : '0'}}</h2>
 							<p>Visualizações</p>
-							<p>Últimos 7 dias</p>
+							
 
 						</div>
 
 						<div class="col-md-4">
 
-							<h2>7</h2>
+							<h2>{{0}}</h2>
 							<p>Contatos</p>
-							<p>Últimos 7 dias</p>
+							
 
 						</div>
 						<div class="col-md-4">
 
-							<img id="img-moeda" src="{{asset('img/coin.png')}}" alt="moeda">
-							<h2 class="moedas">30</h2>
-							<p>Moedas</p>
-							<p><a href="#">Saber Mais</a></p>
-
+							<h2 class="moedas">{{$total_produtos->count()}}</h2>
+							<p>Total de Anúncios</p>
+							
 						</div>
 					</div>
 

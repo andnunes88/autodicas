@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Anuncio;
 use App\Categoria;
+use App\EstatisticaAnuncio;
 
 class AnuncioController extends Controller
 {
@@ -31,6 +32,8 @@ class AnuncioController extends Controller
         ->where('id', $id_anuncio)
         ->first();
 
+        $this->contaVisualizacao($id_anuncio);
+
     	return view('site.anuncio.detalhe', compact('registro'));
     }
 
@@ -42,5 +45,24 @@ class AnuncioController extends Controller
         ->get();                
 
         return view('site.anuncio.ads', compact('registros'));
+    }
+
+    public function contaVisualizacao($id_anuncio){
+                
+        $registro = Anuncio::find($id_anuncio);
+        
+        $EstatisticaAnuncio = EstatisticaAnuncio::where('anuncio_id', $registro->id)->first();        
+
+        if($EstatisticaAnuncio != NULL && $EstatisticaAnuncio != ''){
+            $EstatisticaAnuncio = EstatisticaAnuncio::where('anuncio_id', $registro->id)->first();
+            $EstatisticaAnuncio->visualizacao = $EstatisticaAnuncio->visualizacao + 1;
+            $EstatisticaAnuncio->update();
+        }else{
+            $EstatisticaAnuncio = new EstatisticaAnuncio();
+            $EstatisticaAnuncio->anuncio_id = $registro->id;
+            $EstatisticaAnuncio->visualizacao = 1;
+            $EstatisticaAnuncio->save();
+        }
+        
     }
 }

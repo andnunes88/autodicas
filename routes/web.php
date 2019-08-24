@@ -1,5 +1,14 @@
 <?php
 Use App\Anuncio;
+Use App\EstatisticaAnuncio;
+
+Route::get('/teste', function(){
+
+	$anuncios = Anuncio::with(['estatistica'])->where('usuario_id', 1)->get();
+    return $anuncios->toJson();
+    //dd($anuncios);
+	
+});
 
 Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
@@ -9,6 +18,8 @@ Route::get('/busca', 'Site\AnuncioController@busca')->name('busca');
 
 #Anuncio com Slug
 Route::get('anuncio/{slug}/{id?}', 'Site\AnuncioController@detalhe')->name('site.anuncio.detalhe');
+
+Route::post('conta-visualizacao/{id_anuncio}', 'Site\AnuncioController@contaVisualizacao')->name('conta-visualizacao');
 
 Auth::routes();
 

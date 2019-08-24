@@ -16,4 +16,10 @@ class Anuncio extends Model
     public function usuario(){
     	return $this->belongsTo('App\User');
     }
+
+    public function estatistica(){
+    	return $this->hasOne('App\EstatisticaAnuncio');
+    }
+
+
 }

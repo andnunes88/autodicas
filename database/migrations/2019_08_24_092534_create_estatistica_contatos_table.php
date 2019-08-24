@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEstatisticaAnunciosTable extends Migration
+class CreateEstatisticaContatosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateEstatisticaAnunciosTable extends Migration
      */
     public function up()
     {
-        Schema::create('estatistica_anuncios', function (Blueprint $table) {
+        Schema::create('estatistica_contatos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('anuncio_id')->unsigned();
-            $table->foreign('anuncio_id')->references('id')->on('anuncios')->onDelete('cascade');
-            $table->integer('visualizacao');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateEstatisticaAnunciosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estatistica_anuncios');
+        Schema::dropIfExists('estatistica_contatos');
     }
 }
