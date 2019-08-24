@@ -33,4 +33,14 @@ class AnuncioController extends Controller
 
     	return view('site.anuncio.detalhe', compact('registro'));
     }
+
+    public function busca(Request $request){
+        
+        $dados = $request['busca'];
+                
+        $registros = Anuncio::where("titulo", "like", "%". $dados ."%")
+        ->get();                
+
+        return view('site.anuncio.ads', compact('registros'));
+    }
 }

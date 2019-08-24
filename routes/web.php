@@ -5,6 +5,7 @@ Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
 #Site
 Route::get('/ads', 'Site\AnuncioController@ads')->name('ads');
+Route::get('/busca', 'Site\AnuncioController@busca')->name('busca');
 
 #Anuncio com Slug
 Route::get('anuncio/{slug}/{id?}', 'Site\AnuncioController@detalhe')->name('site.anuncio.detalhe');
