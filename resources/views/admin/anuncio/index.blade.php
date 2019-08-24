@@ -47,7 +47,7 @@
 							<td>{{$registro->titulo}} 
 								<div><small>{{ date('d/m/Y', strtotime($registro->expira)) }}</small></div>
 							</td>							
-							<td>{{$registro->valor}}</td>
+							<td>R$ {{number_format($registro->valor,2,",",".")}} </td>
 							<td><span class="label label-{{$registro->status == 'ativo' ? 'success' : 'danger'}}">{{$registro->status}}</span></td>
 							<td> 
 								<a href="{{route('admin.anuncios.editar', $registro->id)}}" class="btn btn-warning"> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> </a> 

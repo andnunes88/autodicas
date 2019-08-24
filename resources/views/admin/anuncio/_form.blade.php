@@ -14,8 +14,7 @@
 			<div class="form-group col-sm-4">
 				<label for="categoria">Escolha a Categoria</label>
 				<select class="form-control" name="categoria">
-
-					<option selected disabled required>Selecione</option>
+					
 					@foreach($categorias as $categoria)
 
 						<option value="{{$categoria->id}}" {{ isset($registro->categoria_id) && ( $registro->categoria_id == $categoria->id) ? 'selected' : ''}}> {{$categoria->categoria_nome}}</option>

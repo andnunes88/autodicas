@@ -127,12 +127,12 @@
                                 <div class="logo-loja">
                                   
                                     <h3> {{$registro->usuario->name}} </h3>                                            
-                                    <p> Localização: <strong> {{$registro->usuario->cidade->cidade_nome}} </strong></p>
+                                    <p> Localização: <strong> {{isset($registro->usuario->cidade->cidade_nome) ? $registro->usuario->cidade->cidade_nome : ''}} </strong></p>
                                     
                                     <a href="tel:#">                                  
                                         <button type="button" class="btn btn-primary btn-tel">
                                           <span class="glyphicon glyphicon-earphone"> </span> 
-                                          {{$registro->usuario->telefone}}
+                                          {{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}
                                         </button>                                    
                                     </a>
 
@@ -154,10 +154,10 @@
                 <h3 class="text-uppercase">Localização </h3>                   
 
                     <ul>
-                        <li><strong>CEP:</strong>       {{$registro->usuario->cep}}  </li>
-                        <li><strong>Estado:</strong>    {{$registro->usuario->estado->estado_nome}} </li>                       
-                        <li><strong>Cidade:</strong>    {{$registro->usuario->cidade->cidade_nome}} </li>
-                        <li><strong>Endereço:</strong>  {{$registro->usuario->endereco}} </li>
+                        <li><strong>CEP:</strong>       {{isset($registro->usuario->cep) ? $registro->usuario->cep : ''}}  </li>
+                        <li><strong>Estado:</strong>    {{isset($registro->usuario->estado->estado_nome) ? $registro->usuario->estado->estado_nome : ''}} </li>                       
+                        <li><strong>Cidade:</strong>    {{isset($registro->usuario->cidade->cidade_nome) ? $registro->usuario->cidade->cidade_nome : ''}} </li>
+                        <li><strong>Endereço:</strong>  {{isset($registro->usuario->endereco) ? $registro->usuario->endereco : ''}} </li>
                     </ul>                    
 
             </div>
