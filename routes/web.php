@@ -45,6 +45,9 @@ Route::group(['middleware'=>'auth'], function(){
 	Route::get('/usuario/perfil/detetar/{id_usuario}', 'Admin\UsuarioController@deletar')->name('admin.perfil.deletar');
 	Route::get('/cidades/{id_estado?}', 'Admin\UsuarioController@pegarCidadesDoEstado')->name('admin.cidades');
 
+	/* Estatistica */
+	Route::get('/estatistica', 'Admin\UsuarioController@estatistica')->name('admin.estatistica');
+
 	/* Carrinho */
 	Route::get('/cart', 'Admin\CartController@index')->name('admin.cart');
 	Route::get('/cart/checkout/{id_produto}', 'Admin\CartController@checkout')->name('admin.cart.checkout');

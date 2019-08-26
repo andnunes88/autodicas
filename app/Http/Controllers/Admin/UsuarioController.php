@@ -173,4 +173,12 @@ class UsuarioController extends Controller
         }
 
     }
+
+     public function estatistica(){
+        
+        $titulo = 'Estatistica';
+        return view('admin.estatistica.index', compact('titulo'));
+    }
+
+
 }
