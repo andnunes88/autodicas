@@ -176,8 +176,11 @@ class UsuarioController extends Controller
 
      public function estatistica(){
         
+        $estatisticas = EstatisticaAnuncio::orderBy('visualizacao', 'desc')->get();
+
         $titulo = 'Estatistica';
-        return view('admin.estatistica.index', compact('titulo'));
+        
+        return view('admin.estatistica.index', compact('titulo', 'estatisticas'));
     }
 
 

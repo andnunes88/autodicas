@@ -34,23 +34,13 @@
 					</thead>
 					<tbody>	
 
+						@foreach($estatisticas as $estatistica)
 						<tr>
-							<td>Bateria</td>
-							<td>15</td>
+							<td>{{$estatistica->anuncio->titulo}}</td>
+							<td>{{$estatistica->visualizacao}}</td>
 							<td>3</td>						
 						</tr>
-
-						<tr>
-							<td>Oléo</td>
-							<td>13</td>
-							<td>2</td>						
-						</tr>
-
-						<tr>
-							<td>Pneus</td>
-							<td>11</td>
-							<td>5</td>						
-						</tr>					
+						@endforeach									
 						
 					</tbody>
 				</table>
