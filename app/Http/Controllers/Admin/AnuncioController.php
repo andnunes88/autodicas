@@ -153,5 +153,7 @@ class AnuncioController extends Controller
 
         return $registros;        
     }
+
+   
     
 }

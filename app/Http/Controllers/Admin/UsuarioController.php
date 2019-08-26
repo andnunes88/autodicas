@@ -25,6 +25,8 @@ class UsuarioController extends Controller
 
         $totalVisualizacao = $this->totalVisualizacao();
 
+        $this->verificaPerfilPreenchido();
+
         return view('admin.index', compact('titulo','total_produtos','totalVisualizacao'));
 
     }
@@ -55,6 +57,8 @@ class UsuarioController extends Controller
         $usuario = User::where('telefone', '<>', NULL)->first();
 
         $estados = Estado::all(); 
+
+        $cidades = [];
 
         if(isset($usuario) && $usuario->count() > 0){
 
@@ -154,6 +158,19 @@ class UsuarioController extends Controller
         $totalVisualizacao = $query[0]->total;
 
         return $totalVisualizacao;
+
+    }
+
+     public function verificaPerfilPreenchido(){
+        
+        $id_usuario = Auth::id();
+        
+        $usuario = User::find($id_usuario);
+       
+        if(($usuario->telefone == NULL)){
+            \Session::flash('mensagem',['msg'=>'Complete seu perfil','class'=>'alert alert-danger']);
+            return redirect()->route('admin.perfil'); 
+        }
 
     }
 }

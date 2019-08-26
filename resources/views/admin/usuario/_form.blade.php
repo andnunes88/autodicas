@@ -50,12 +50,16 @@
 
 						<label class="control-label col-sm-2" for="endereco">Estado:</label>
 						<div class="col-sm-2">
+
+							@if(isset($estados))
 							<select class="form-control" name="estado_id" id="estado_id">
 								
 								@foreach ($estados as $estado)
 									<option value="{{$estado->id}}"> {{$estado->estado_nome}}</option>									
 								@endforeach								
 							</select>
+							@endif
+
 						</div>
 
 						<label class="control-label col-sm-2" for="cidade">Cidade:</label>
