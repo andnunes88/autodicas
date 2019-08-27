@@ -17,7 +17,8 @@ class CreateEstatisticaAnunciosTable extends Migration
             $table->increments('id');
             $table->integer('anuncio_id')->unsigned();
             $table->foreign('anuncio_id')->references('id')->on('anuncios')->onDelete('cascade');
-            $table->integer('visualizacao');
+            $table->integer('visualizacao')->nullable();
+            $table->integer('contato')->nullable();
             $table->timestamps();
         });
     }

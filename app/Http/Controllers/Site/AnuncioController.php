@@ -65,4 +65,19 @@ class AnuncioController extends Controller
         }
         
     }
+
+    public function contaContato($id_anuncio){
+                
+        $registro = Anuncio::find($id_anuncio);
+        
+        $EstatisticaAnuncio = EstatisticaAnuncio::where('anuncio_id', $registro->id)->first(); 
+       
+        if($EstatisticaAnuncio != NULL && $EstatisticaAnuncio != ''){
+            $EstatisticaAnuncio = EstatisticaAnuncio::where('anuncio_id', $registro->id)->first();
+            $EstatisticaAnuncio->contato = $EstatisticaAnuncio->contato + 1;
+            $EstatisticaAnuncio->update();
+            return 'Contato Atualizado';
+        }      
+        
+    }
 }

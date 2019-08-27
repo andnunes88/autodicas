@@ -88,6 +88,9 @@
         
 		<h1 class="produto-titulo">{{$registro->titulo}}</h1>
             
+            <!-- Input para armazenar o id do anúncio-->
+            <input type="hidden" id="anuncio_id" name="anuncio_id" value="{{$registro->id}}">
+
             <div class="col-md-9">
                 
                 <div>
@@ -129,12 +132,12 @@
                                     <h3> {{$registro->usuario->name}} </h3>                                            
                                     <p> Localização: <strong> {{isset($registro->usuario->cidade->cidade_nome) ? $registro->usuario->cidade->cidade_nome : ''}} </strong></p>
                                     
-                                    <a href="tel:#">                                  
-                                        <button type="button" class="btn btn-primary btn-tel">
-                                          <span class="glyphicon glyphicon-earphone"> </span> 
-                                          {{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}
+                                                                       
+                                     <a href="tel:#">                                  
+                                        <button type="button" id="telefone" value=" {{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}" class="btn btn-primary btn-tel">
+                                            <span class="glyphicon glyphicon-earphone"></span>  Ver numero
                                         </button>                                    
-                                    </a>
+                                    </a> 
 
                                 </div>
 
@@ -232,3 +235,4 @@
     </div>    
 </div>
 @endsection
+

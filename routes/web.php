@@ -18,7 +18,8 @@ Route::get('/busca', 'Site\AnuncioController@busca')->name('busca');
 #Anuncio com Slug
 Route::get('anuncio/{slug}/{id?}', 'Site\AnuncioController@detalhe')->name('site.anuncio.detalhe');
 
-Route::post('conta-visualizacao/{id_anuncio}', 'Site\AnuncioController@contaVisualizacao')->name('conta-visualizacao');
+Route::post('conta-visualizacao/{id_anuncio}', 'Site\AnuncioController@contaVisualizacao')->name('contaVisualizacao');
+Route::get('conta-contato/{id_anuncio}', 'Site\AnuncioController@contaContato')->name('contaContato');
 
 Auth::routes();
 

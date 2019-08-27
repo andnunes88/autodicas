@@ -38,7 +38,7 @@
 						<tr>
 							<td>{{$estatistica->anuncio->titulo}}</td>
 							<td>{{$estatistica->visualizacao}}</td>
-							<td>3</td>						
+							<td>{{$estatistica->contato}}</td>						
 						</tr>
 						@endforeach									
 						

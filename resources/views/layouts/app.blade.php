@@ -134,6 +134,8 @@
 
 <script src="{{asset('js/lightslider.js')}}" type="text/javascript"></script>
 
+<script src="{{asset('js/site/estatistica.js')}}" type="text/javascript"></script>
+
 @yield('post-script')
 
 </body>
