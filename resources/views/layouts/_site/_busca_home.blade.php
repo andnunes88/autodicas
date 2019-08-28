@@ -5,13 +5,14 @@
 			<div class="col-xl-10">
 				<div class="text-center">
 					<h1>autodicas.com</h1>
-					<p>Encontre peças e serviços para seu veículo em nossas lojas VIP</p>
+					<p>O MAIOR CLASSIFICADO AUTOMOTIVO DO BRASIL </p>
+					
 				</div>
 				<div class="search-bar">
 					<form action="{{route('busca')}}">
 						<div class="row">
 							<div class="col-lg-10 form-group">
-								<input type="text" name="busca" placeholder="O que você procura?" class="form-control border-0 shadow-0">
+								<input type="text" name="busca" placeholder="Encontre peças e serviços para seu veículo" class="form-control border-0 shadow-0">
 							</div>
 
 							<div class="col-lg-2">

@@ -149,12 +149,12 @@
 
             <div class="col-md-9">                
                 <hr>
-                <h3>Detalhe do produto</h3>
+                <h3>Detalhe:</h3>
                 <p>{{$registro->descricao}}</p>
                 
                 <hr>
 
-                <h3 class="text-uppercase">Localização </h3>                   
+                <h3 class="text-uppercase">Localização: </h3>                   
 
                     <ul>
                         <li><strong>CEP:</strong>       {{isset($registro->usuario->cep) ? $registro->usuario->cep : ''}}  </li>
