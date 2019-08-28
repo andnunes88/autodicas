@@ -33,6 +33,8 @@ class CreateAnunciosTable extends Migration
             $table->timestamps();            
 
         });
+
+        DB::statement('ALTER TABLE anuncios ADD FULLTEXT busca(titulo, descricao)');
     }
 
     /**

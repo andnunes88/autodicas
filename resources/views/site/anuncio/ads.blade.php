@@ -154,8 +154,13 @@ ul li{
                  @endif
 
                  <p class="info-loja">
-                     <small> {{ $anuncio->usuario->estado->estado_nome }} - {{ $anuncio->usuario->cidade->cidade_nome }}</small> <br>
-                     <small> {{ $anuncio->categoria->categoria_nome }}</small> 
+                     <small>
+                        {{ isset($anuncio->usuario->estado->estado_nome) ? $anuncio->usuario->estado->estado_nome : '' }} 
+                        - 
+                        {{ isset($anuncio->usuario->cidade->cidade_nome) ? $anuncio->usuario->cidade->cidade_nome : '' }}
+                    </small> 
+                    <br>
+                     <small> {{ isset($anuncio->categoria->categoria_nome) ? $anuncio->categoria->categoria_nome : '' }}</small> 
                  </p>
              </div>
 
@@ -164,7 +169,7 @@ ul li{
                     <div class="col-md-12">
 
                        <p><strong>Vendedor:</strong> {{ $anuncio->usuario->name }} </p>
-                       <p class="info-loja"><strong>Local:</strong> {{ $anuncio->usuario->cidade->cidade_nome }}</p>	   
+                       <p class="info-loja"><strong>Local:</strong> {{ isset($anuncio->usuario->cidade->cidade_nome) ? $anuncio->usuario->cidade->cidade_nome : '' }}</p>	   
 
                    </div>
                </div>

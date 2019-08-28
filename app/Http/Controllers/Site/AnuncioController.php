@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Anuncio;
 use App\Categoria;
 use App\EstatisticaAnuncio;
+use Illuminate\Support\Facades\DB;
 
 class AnuncioController extends Controller
 {
@@ -39,10 +40,10 @@ class AnuncioController extends Controller
 
     public function busca(Request $request){
         
-        $dados = $request['busca'];
-                
-        $registros = Anuncio::where("titulo", "like", "%". $dados ."%")
-        ->get();                
+       // $dados = trim($request['busca']);
+        $dados=trim($request->get('busca'));
+             
+        $registros  = Anuncio::whereRaw("match(titulo, descricao) against ('" . $dados ."')")->get(); 
 
         return view('site.anuncio.ads', compact('registros'));
     }
