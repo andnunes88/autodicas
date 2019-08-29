@@ -26,8 +26,6 @@
 
   <link rel="stylesheet" type="text/css" href="{{asset('css/lightslider.css')}}">
 
-  <!-- adsense do google-->
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 <!--Metatags para facebook -->  
 <meta property="og:locale" content="pt_BR">
@@ -137,6 +135,17 @@
 <script src="{{asset('js/site/estatistica.js')}}" type="text/javascript"></script>
 
 @yield('post-script')
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111872517-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111872517-2');
+</script>
+
 
 </body>
 </html>
