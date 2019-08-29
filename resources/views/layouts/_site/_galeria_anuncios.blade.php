@@ -92,7 +92,9 @@
 							
 		
 		</div>
-			
+			{{ $registros->links() }}
 	</div>
+
+	
 
 </section>

@@ -14,7 +14,7 @@ class AnuncioController extends Controller
     //
     public function index(){
         
-        $registros = Anuncio::all();
+        $registros = Anuncio::paginate(15);
         $categorias = Categoria::all();
 
     	return view('site.home', compact('registros','categorias'));
@@ -22,7 +22,7 @@ class AnuncioController extends Controller
 
     public function ads(){
 
-        $registros = Anuncio::all();
+        $registros = Anuncio::paginate(10);
 
     	return view('site.anuncio.ads', compact('registros'));
     }
@@ -40,10 +40,9 @@ class AnuncioController extends Controller
 
     public function busca(Request $request){
         
-       // $dados = trim($request['busca']);
         $dados=trim($request->get('busca'));
              
-        $registros  = Anuncio::whereRaw("match(titulo, descricao) against ('" . $dados ."')")->get(); 
+        $registros  = Anuncio::whereRaw("match(titulo, descricao) against ('" . $dados ."')")->paginate(20); 
 
         return view('site.anuncio.ads', compact('registros'));
     }

@@ -100,10 +100,11 @@ ul li{
 
 </style>  
 
+{{-- 
 <div id="banner-autodicas">
     <img src="{{ asset('img/banners/anuncie_autodicas.png') }}" alt="">
 </div>    
-
+--}}
 <div class="container">
 
     <div class="row">
@@ -117,7 +118,9 @@ ul li{
         </div>
     </div>
 
-    @include('layouts._site._filtro')
+    {{-- @include('layouts._site._filtro') --}}
+
+    @include('layouts._site._busca_home')
 
 </div>
 
@@ -181,7 +184,11 @@ ul li{
 
    @endforeach
 
+  
+    
+    {{ $registros->render() }}
 
+  
 
    {{-- $registros->appends(Request::only('order'))->links() --}}				
 
