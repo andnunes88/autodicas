@@ -133,8 +133,8 @@
                                     <p> Localização: <strong> {{isset($registro->usuario->cidade->cidade_nome) ? $registro->usuario->cidade->cidade_nome : ''}} </strong></p>
                                     
                                                                        
-                                     <a href="tel:#">                                  
-                                        <button type="button" id="telefone" value=" {{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}" class="btn btn-primary btn-tel">
+                                     <a href="tel:{{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}">                                  
+                                        <button type="button" id="telefone" value="{{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}" class="btn btn-primary btn-tel">
                                             <span class="glyphicon glyphicon-earphone"></span>  Ver numero
                                         </button>                                    
                                     </a> 
