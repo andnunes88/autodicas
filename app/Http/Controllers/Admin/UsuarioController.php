@@ -154,6 +154,7 @@ class UsuarioController extends Controller
             ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
             ->where('users.id', $id_usuario)
             ->get();
+ 
 
         $totalVisualizacao = $query[0]->total;
 
@@ -174,9 +175,16 @@ class UsuarioController extends Controller
 
     }
 
-     public function estatistica(){
-        
-        $estatisticas = EstatisticaAnuncio::orderBy('visualizacao', 'desc')->get();
+     public function estatistica(){      
+
+        $id_usuario = Auth::id();
+
+        $estatisticas = DB::table('anuncios')
+            ->select('anuncios.titulo','estatistica_anuncios.visualizacao', 'estatistica_anuncios.contato')
+            ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
+            ->where('anuncios.usuario_id', $id_usuario)
+            ->orderBy('visualizacao','DESC')
+            ->get();    
 
         $titulo = 'Estatistica';
         

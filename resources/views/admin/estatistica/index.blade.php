@@ -36,7 +36,7 @@
 
 						@foreach($estatisticas as $estatistica)
 						<tr>
-							<td>{{$estatistica->anuncio->titulo}}</td>
+							<td>{{$estatistica->titulo}}</td>
 							<td>{{$estatistica->visualizacao}}</td>
 							<td>{{$estatistica->contato}}</td>						
 						</tr>
