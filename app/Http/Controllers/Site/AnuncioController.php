@@ -14,7 +14,12 @@ class AnuncioController extends Controller
     //
     public function index(){
         
-        $registros = Anuncio::paginate(15);
+        $registros = Anuncio::where('ativo',true)
+            ->inRandomOrder()
+            ->take(10)
+            ->orderBy('relevancia', 'DESC')
+            ->get();      
+
         $categorias = Categoria::all();
 
     	return view('site.home', compact('registros','categorias'));

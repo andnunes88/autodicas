@@ -67,7 +67,7 @@
 					
 				  <a href="{{route('site.anuncio.detalhe',  $anuncio->anuncio_slug .'/'. $anuncio->id)}}">
 
-					<img src="{{ asset($anuncio->imagem) }}" alt="Imagem do produto" width="224" height="224" class="img-responsive center-block">
+					<img src="{{ asset($anuncio->imagem) }}" alt="{{ $anuncio->anuncio_slug }}" width="224" height="224" class="img-responsive center-block">
 				  </a>
 				  <div class="desc">{{$anuncio->titulo}}</div>
 				  
@@ -92,7 +92,7 @@
 							
 		
 		</div>
-			{{ $registros->links() }}
+			{{-- $registros->links() --}}
 	</div>
 
 	

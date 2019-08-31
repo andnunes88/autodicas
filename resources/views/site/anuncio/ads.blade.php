@@ -140,7 +140,7 @@ ul li{
              <div id="lista-produto" class="row borda">
 
               <div class="col-xs-4 col-md-2 text-center">
-                 <img src="{{ asset($anuncio->imagem) }}" width="160" height="160" alt="Imagem do produto"
+                 <img src="{{ asset($anuncio->imagem) }}" width="160" height="160" alt="{{ $anuncio->anuncio_slug }}"
                  class="img-rounded img-responsive img-list" />
              </div>
 
