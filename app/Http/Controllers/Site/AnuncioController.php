@@ -16,7 +16,7 @@ class AnuncioController extends Controller
         
         $registros = Anuncio::where('ativo',true)
             ->inRandomOrder()
-            ->take(10)
+            ->take(15)
             ->orderBy('relevancia', 'DESC')
             ->get();      
 
@@ -27,7 +27,7 @@ class AnuncioController extends Controller
 
     public function ads(){
 
-        $registros = Anuncio::paginate(10);
+        $registros = Anuncio::paginate(20);
 
     	return view('site.anuncio.ads', compact('registros'));
     }

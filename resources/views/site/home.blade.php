@@ -6,4 +6,6 @@
 
 	@include('layouts._site._galeria_anuncios')
 
+	@include('layouts._site._mensagem')
+
 @endsection
