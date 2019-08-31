@@ -35,6 +35,7 @@ class CreateUsersTable extends Migration
             $table->string('complemento')->nullable();
             $table->string('usuario_slug')->nullable();
             $table->string('usuario_imagem')->nullable();
+            $table->string('detalhe')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

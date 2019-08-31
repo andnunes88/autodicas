@@ -160,7 +160,13 @@
                         <li><strong>CEP:</strong>       {{isset($registro->usuario->cep) ? $registro->usuario->cep : ''}}  </li>
                         <li><strong>Estado:</strong>    {{isset($registro->usuario->estado->estado_nome) ? $registro->usuario->estado->estado_nome : ''}} </li>                       
                         <li><strong>Cidade:</strong>    {{isset($registro->usuario->cidade->cidade_nome) ? $registro->usuario->cidade->cidade_nome : ''}} </li>
-                        <li><strong>Endereço:</strong>  {{isset($registro->usuario->endereco) ? $registro->usuario->endereco : ''}} </li>
+                        <li>
+                            <strong>Endereço:</strong>  
+                                {{isset($registro->usuario->endereco) ? $registro->usuario->endereco : ''}} - 
+                                {{isset($registro->usuario->numero) ? $registro->usuario->numero : ''}} 
+                        </li>
+                        
+                        <li><strong>Complemento:</strong>  {{isset($registro->usuario->complemento) ? $registro->usuario->complemento : ''}} </li>
                     </ul>                    
 
             </div>

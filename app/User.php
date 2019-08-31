@@ -29,7 +29,8 @@ class User extends Authenticatable
         'numero',
         'complemento',
         'usuario_slug',
-        'usuario_imagem'
+        'usuario_imagem',
+        'detalhe'
     ];
 
     /**
