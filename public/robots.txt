@@ -1,2 +1,3 @@
+https://autodicas.com/sitemap.xml
 User-agent: *
 Disallow:
