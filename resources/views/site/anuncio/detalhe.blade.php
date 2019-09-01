@@ -150,7 +150,7 @@
             <div class="col-md-9">                
                 <hr>
                 <h3>Detalhe:</h3>
-                <p>{{$registro->descricao}}</p>
+                <p>{!! nl2br($registro->descricao) !!}</p>
                 
                 <hr>
 
