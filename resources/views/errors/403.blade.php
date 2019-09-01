@@ -30,7 +30,7 @@
 				<h1>4<img src="{{asset('images/icons/icon-128x128.png')}}">4</h1>
 			</div>
 			<h2>Você não tem permissão</h2>
-			<p>Permissão negada <a href="{{route('site.todos.produtos')}}">Voltar para site</a></p>
+			<p>Permissão negada <a href="{{route('site.home')}}">Voltar para site</a></p>
 			<div class="notfound-social">
 				<a href="https://www.facebook.com/autodicasbr"><i class="fa fa-facebook"></i></a>
 				<a href="#"><i class="fa fa-twitter"></i></a>
