@@ -27,39 +27,41 @@
   <link rel="stylesheet" type="text/css" href="{{asset('css/lightslider.css')}}">
 
 
-<!--Metatags para facebook -->  
-<meta property="og:locale" content="pt_BR">
-<meta property="og:type" content= "website" />
-<meta property="og:url" content="@yield('url')">
-<meta property="og:title" content="@yield('titulo')">
-<meta property="og:site_name" content="autodicas.com">
-<!-- Descrição do site-->
-<meta property="og:description" content="@yield('descricao'), @yield('incentivo')">
-<!-- Imagem do site-->
-<meta property="og:image" content="@yield('imagem')">
-<meta property="og:image:width" content="800"> 
-<meta property="og:image:height" content="600"> 
+  <!--Metatags para facebook -->  
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:type" content= "website" />
+  <meta property="og:url" content="@yield('url')">
+  <meta property="og:title" content="@yield('titulo')">
+  <meta property="og:site_name" content="autodicas.com">
+  <!-- Descrição do site-->
+  <meta property="og:description" content="@yield('descricao'), @yield('incentivo')">
+  <!-- Imagem do site-->
+  <meta property="og:image" content="@yield('imagem')">
+  <meta property="og:image:width" content="800"> 
+  <meta property="og:image:height" content="600"> 
 
-<!--Metatags para twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@autodicasbr">
-<meta name="twitter:creator" content="@autodicasbr">
-<meta name="twitter:title" content="@yield('titulo') | autodicas">
-<meta name="twitter:description" content="@yield('descricao'), @yield('incentivo')">
-<meta name="twitter:image" content="@yield('imagem')"> 
+  <!--Metatags para twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@autodicasbr">
+  <meta name="twitter:creator" content="@autodicasbr">
+  <meta name="twitter:title" content="@yield('titulo') | autodicas">
+  <meta name="twitter:description" content="@yield('descricao'), @yield('incentivo')">
+  <meta name="twitter:image" content="@yield('imagem')"> 
 
-<meta property="og:image" itemprop="image primaryImageOfPage" content="@yield('imagem')" />
+  <meta property="og:image" itemprop="image primaryImageOfPage" content="@yield('imagem')" />
 
-<style>
+  <style>
 
-@media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 600px) {
 
-  #contact{
-   text-align: center;
-} 
+      #contact{
+       text-align: center;
+     } 
 
-}
-</style>
+   }
+ </style>
+
+ <link rel="alternate" href="https://autodicas.com" hreflang="pt-br" />
 
 </head>
 <body>
@@ -70,45 +72,45 @@
 
     @yield('content')
 
-</main>
+  </main>
 
-<section id="contact">
+  <section id="contact">
     <div class="container">
       <div class="col-md-2">
-        <img src="{{asset('img/autodicas_footer.png')}}">
-    </div>
+        <img src="{{asset('img/autodicas_footer.png')}}" alt="logotipo do autodicas">
+      </div>
 
-    <div class="col-md-3">
+      <div class="col-md-3">
         <h5 style="color: white">Navegação</h5>
         <ul class="list quicklinks link-rodape" style="list-style: none">
           <li><a href="http://blog.autodicas.com/">Blog</a></li>
           <li><a href="#">Mapa do site</a></li>
+        </ul>
+      </div>
+
+      <div id="div-facebook" class="col-md-3">
+       <h5 style="color: white">Rede Social</h5>
+       <iframe id="btn-facebook" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fautodicasbr%2F&width=176&layout=button&action=like&size=large&show_faces=true&share=true&height=65&appId=154701368560966" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+     </div>
+
+     <div class="col-md-3">
+      <h5 style="color: white">Sobre o Autodicas</h5>
+      <ul class="list quicklinks link-rodape" style="list-style: none">
+        <li><a href="#">Contatos</a></li>
+        <li><a href="#">Regras</a></li>
+        <li><a href="#">Termo de Uso</a></li>
       </ul>
+    </div>
+
+    <div class="col-md-3 col-md-offset-5">
+      <ul class="list-inline social-buttons">
+        <li><a href="https://twitter.com/autodicas1"><i class="fab fa-twitter" style="margin-left: 10px"></i></a>
+        </li>
+        <li><a href="https://facebook.com/autodicasbr"><i class="fab fa-facebook-f" style="margin-left: 15px"></i></a>
+        </li>
+      </ul>
+    </div>
   </div>
-
-  <div id="div-facebook" class="col-md-3">
-     <h5 style="color: white">Rede Social</h5>
-     <iframe id="btn-facebook" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fautodicasbr%2F&width=176&layout=button&action=like&size=large&show_faces=true&share=true&height=65&appId=154701368560966" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
- </div>
-
- <div class="col-md-3">
-  <h5 style="color: white">Sobre o Autodicas</h5>
-  <ul class="list quicklinks link-rodape" style="list-style: none">
-    <li><a href="#">Contatos</a></li>
-     <li><a href="#">Regras</a></li>
-     <li><a href="#">Termo de Uso</a></li>
- </ul>
-</div>
-
-<div class="col-md-3 col-md-offset-5">
-    <ul class="list-inline social-buttons">
-      <li><a href="https://twitter.com/autodicas1"><i class="fab fa-twitter" style="margin-left: 10px"></i></a>
-      </li>
-      <li><a href="https://facebook.com/autodicasbr"><i class="fab fa-facebook-f" style="margin-left: 15px"></i></a>
-      </li>
-  </ul>
-</div>
-</div>
 </div>
 </section>
 
@@ -117,9 +119,9 @@
     <div class="row">
       <div class="col-md-4 pull-right">
         <span class="copyright">Copyright &copy; Albutech Sistemas <?php echo date("Y"); ?></span>
+      </div>
     </div>
-</div>
-</div>
+  </div>
 </footer>
 
 <script src="{{asset('js/jquery.js')}}"></script>
