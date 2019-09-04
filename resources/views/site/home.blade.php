@@ -3,16 +3,11 @@
 @section('content')
 	
 	@include('layouts._site._busca_home')
-
-	<style type="text/css">
-		ul#categorias li {
-			display: inline;
-		}
-	</style>
+	
 
 	<div class="container">
 		<div class="row">
-			<ul id="categorias">
+			<ul id="categorias" class="list-inline">
 				
 				@foreach($categorias as $categoria)
 				<li><a href="{{route('ads',$categoria->id)}}">{{$categoria->categoria_nome}} </a></li>	
