@@ -20,16 +20,26 @@ class AnuncioController extends Controller
             ->orderBy('relevancia', 'DESC')
             ->get();      
 
-        $categorias = Categoria::all();
-
+        $categorias = Categoria::has('Anuncio')->get();
+        
     	return view('site.home', compact('registros','categorias'));
     }
 
-    public function ads(){
+    public function ads($id_categoria = NULL){
 
-        $registros = Anuncio::where('ativo',true)
-        ->orderBy('relevancia', 'DESC')
-        ->paginate(20);
+        if($id_categoria != NULL){
+            
+            $registros = Anuncio::where('ativo',true)
+            ->Where('categoria_id', $id_categoria)
+            ->orderBy('relevancia', 'DESC')
+            ->paginate(25);
+
+        }else{
+            
+            $registros = Anuncio::where('ativo',true)
+            ->orderBy('relevancia', 'DESC')
+            ->paginate(25);
+        }        
 
     	return view('site.anuncio.ads', compact('registros'));
     }

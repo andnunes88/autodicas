@@ -15,7 +15,7 @@ class Categoria extends Model
 		'categoria_imagem'
 	];
 
-    public function produto(){
+    public function anuncio(){
     	return $this->hasMany('App\Anuncio');
     }
 }

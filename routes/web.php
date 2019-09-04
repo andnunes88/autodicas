@@ -12,7 +12,8 @@ Route::get('/teste', function(){
 Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
 #Site
-Route::get('/ads', 'Site\AnuncioController@ads')->name('ads');
+Route::get('/ads/{id_categoria?}', 'Site\AnuncioController@ads')->name('ads');
+//Route::get('/ads/{categoria?}', 'Site\AnuncioController@ads')->name('ads.categoria');
 Route::get('/busca', 'Site\AnuncioController@busca')->name('busca');
 
 #Anuncio com Slug
