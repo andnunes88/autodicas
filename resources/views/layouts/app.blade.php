@@ -166,6 +166,19 @@
   gtag('config', 'UA-111872517-2');
 </script>
 
+<!-- pixel do facebook telefone-->
+<script type="text/javascript">
+  
+  $(function(){
+
+    $("#telefone").click(function(){
+      fbq('track', 'Contact');
+      console.log('track contatc facebook');
+    });
+
+  });
+
+</script>
 
 </body>
 </html>
