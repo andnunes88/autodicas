@@ -1,14 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-	
-	@include('layouts._site._busca_home')
-
-	<style type="text/css">
-		li>a{
-			color: #666;
-		}
-	</style>
 
 	<div class="container">
 		<div class="row">
@@ -21,10 +10,3 @@
 			</ul>
 		</div>
 	</div>
-	
-
-	@include('layouts._site._galeria_anuncios')
-
-	@include('layouts._site._mensagem')
-
-@endsection
