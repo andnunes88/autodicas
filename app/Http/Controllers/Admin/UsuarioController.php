@@ -24,10 +24,11 @@ class UsuarioController extends Controller
     	$total_produtos = Anuncio::where('usuario_id',$id)->get();
 
         $totalVisualizacao = $this->totalVisualizacao();
+        $totalContato = $this->totalContato();        
 
         $this->verificaPerfilPreenchido();
 
-        return view('admin.index', compact('titulo','total_produtos','totalVisualizacao'));
+        return view('admin.index', compact('titulo','total_produtos','totalVisualizacao','totalContato'));
 
     }
 
@@ -159,6 +160,24 @@ class UsuarioController extends Controller
         $totalVisualizacao = $query[0]->total;
 
         return $totalVisualizacao;
+
+    }
+
+     public function totalContato(){
+        
+        $id_usuario = Auth::id(); 
+        
+        $query = DB::table('users')
+            ->select(DB::raw('SUM(contato) AS total'))
+            ->join('anuncios', 'anuncios.usuario_id', '=', 'users.id')
+            ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
+            ->where('users.id', $id_usuario)
+            ->get();
+ 
+
+        $totalContato = $query[0]->total;
+
+        return $totalContato;
 
     }
 

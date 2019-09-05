@@ -55,7 +55,7 @@
 
 						<div class="col-md-4">
 
-							<h2>{{0}}</h2>
+							<h2>{{isset($totalContato) ? $totalContato : '0'}}</h2>
 							<p>Contatos</p>
 							
 
@@ -68,18 +68,20 @@
 						</div>
 					</div>
 
+					{{--
 					<div class="row">
 
 						<div class="col-md-4">
 							<div class="panel panel-default">
 								<div class="panel-heading">Meus Anúncios</div>
 								<div class="panel-body">
-									Ativos <strong> 12 </strong> | Pendentes <strong> 3 </strong> | Expirados <strong> 7 </strong>
+									Ativos <strong> 12 </strong> | Pendentes <strong> 0 </strong> | Expirados <strong> 0 </strong>
 								</div>
 							</div>
 						</div>
 
 					</div>
+					--}}
 
 				</div>
 
