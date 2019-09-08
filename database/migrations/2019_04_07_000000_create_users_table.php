@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('cep')->nullable();
             $table->string('endereco')->nullable();
             $table->string('numero')->nullable();
+            $table->string('bairro')->nullable();
             $table->string('complemento')->nullable();
             $table->string('usuario_slug')->nullable();
             $table->string('usuario_imagem')->nullable();

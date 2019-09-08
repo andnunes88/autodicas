@@ -27,6 +27,7 @@ class User extends Authenticatable
         'cep',        
         'endereco',
         'numero',
+        'bairro',
         'complemento',
         'usuario_slug',
         'usuario_imagem',

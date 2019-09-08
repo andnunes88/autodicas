@@ -133,7 +133,7 @@
                                     <p> Localização: <strong> {{isset($registro->usuario->cidade->cidade_nome) ? $registro->usuario->cidade->cidade_nome : ''}} </strong></p>
                                     
                                                                        
-                                     <a href="tel:{{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}">                                  
+                                    <a href="tel:{{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}">                                  
                                         <button type="button" id="telefone" value="{{isset($registro->usuario->telefone) ? $registro->usuario->telefone : ''}}" class="btn btn-primary btn-tel">
                                             <span class="glyphicon glyphicon-earphone"></span>  Ver numero
                                         </button>                                    
@@ -145,28 +145,46 @@
                         </div>
                     </div>
                 
-            </div>
+            </div>           
 
             <div class="col-md-9">                
                 <hr>
-                <h3>Detalhe:</h3>
+                <h4>Detalhe:</h4>
                 <p>{!! nl2br($registro->descricao) !!}</p>
                 
                 <hr>
 
-                <h3 class="text-uppercase">Localização: </h3>                   
+                <h4 class="text-uppercase">Localização: </h4>                   
 
                     <ul>
-                        <li><strong>CEP:</strong>       {{isset($registro->usuario->cep) ? $registro->usuario->cep : ''}}  </li>
-                        <li><strong>Estado:</strong>    {{isset($registro->usuario->estado->estado_nome) ? $registro->usuario->estado->estado_nome : ''}} </li>                       
-                        <li><strong>Cidade:</strong>    {{isset($registro->usuario->cidade->cidade_nome) ? $registro->usuario->cidade->cidade_nome : ''}} </li>
-                        <li>
-                            <strong>Endereço:</strong>  
-                                {{isset($registro->usuario->endereco) ? $registro->usuario->endereco : ''}} - 
-                                {{isset($registro->usuario->numero) ? $registro->usuario->numero : ''}} 
-                        </li>
-                        
-                        <li><strong>Complemento:</strong>  {{isset($registro->usuario->complemento) ? $registro->usuario->complemento : ''}} </li>
+                        @if(isset($registro->usuario->cep))
+                        <li><strong>CEP:</strong> {{ $registro->usuario->cep }} </li>
+                        @endif
+
+                        @if(isset($registro->usuario->estado->uf))
+                        <li><strong>Estado:</strong> {{ $registro->usuario->estado->uf }} </li> 
+                        @endif
+
+                        @if(isset($registro->usuario->cidade->cidade_nome))
+                        <li><strong>Cidade:</strong> {{ $registro->usuario->cidade->cidade_nome }} </li>
+                        @endif
+
+                        @if(isset($registro->usuario->bairro))
+                        <li><strong>Bairro</strong> {{ $registro->usuario->bairro }}</li>
+                        @endif
+
+                        @if(isset($registro->usuario->endereco))
+                        <li><strong>Endereço:</strong> {{ $registro->usuario->endereco }}</li>
+                        @endif
+
+                        @if(isset($registro->usuario->numero))
+                        <li><strong>Número:</strong> {{ $registro->usuario->numero }} </li>
+                        @endif
+
+                        @if(isset($registro->usuario->complemento))
+                        <li><strong>Complemento:</strong>  {{ $registro->usuario->complemento }} </li>
+                        @endif
+
                     </ul>                    
 
             </div>
