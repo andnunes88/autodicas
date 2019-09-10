@@ -27,4 +27,7 @@
 
 	@include('layouts._site._mensagem')
 
+	{{-- @include('layouts._site._newsletter') --}}
+	
+
 @endsection
