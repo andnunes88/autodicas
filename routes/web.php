@@ -4,8 +4,13 @@ Use App\EstatisticaAnuncio;
 
 Route::get('/teste', function(){
 
-	$anuncios = Anuncio::with(['estatistica'])->where('usuario_id', 1)->get();
-    return $anuncios->toJson(); 
+	$nome = 'anderson';
+
+	Mail::send('admin.email.teste', compact('nome'), function($m){
+		$m->from('andnunes88@gmail.com','Anderson');
+		$m->to('andnunes88@gmail.com','Anderson');
+		$m->subject('Resumo Semanal');
+	});
 	
 });
 
