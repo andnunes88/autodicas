@@ -1,16 +1,26 @@
 <?php
 Use App\Anuncio;
 Use App\EstatisticaAnuncio;
+use Illuminate\Support\Facades\DB;
 
-Route::get('/teste', function(){
+Route::get('/teste', function(){	
 
-	$nome = 'anderson';
-
-	Mail::send('admin.email.teste', compact('nome'), function($m){
+	/* Query relatório Semanal para enviar para os clientes */
+	$estatisticas = DB::table('anuncios')
+            ->select('titulo','visualizacao','contato')            
+            ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
+            ->where('usuario_id', 3)
+            ->orderBy('visualizacao','DESC')
+            ->get();	
+	
+	//return view('admin.email.estatisticaAnuncio', compact("estatisticas"));
+	
+	Mail::send('admin.email.estatisticaAnuncio', compact('estatisticas'), function($m){
 		$m->from('andnunes88@gmail.com','Anderson');
-		$m->to('andnunes88@gmail.com','Anderson');
-		$m->subject('Resumo Semanal');
+		$m->to('shaynasilvares2@hotmail.com','shay');
+		$m->subject('Resumo Semanal: autodicas.com');
 	});
+	
 	
 });
 
