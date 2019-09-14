@@ -26,7 +26,7 @@ class UsuarioController extends Controller
         $totalVisualizacao = $this->totalVisualizacao();
         $totalContato = $this->totalContato();        
 
-        $this->verificaPerfilPreenchido();
+        $this->verificaPerfilPreenchido();       
 
         return view('admin.index', compact('titulo','total_produtos','totalVisualizacao','totalContato'));
 

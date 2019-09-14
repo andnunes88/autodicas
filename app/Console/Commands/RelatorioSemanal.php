@@ -7,6 +7,7 @@ Use App\Anuncio;
 Use App\EstatisticaAnuncio;
 use Illuminate\Support\Facades\DB;
 use Mail;
+use Illuminate\Support\Facades\Log;
 
 class RelatorioSemanal extends Command
 {
@@ -72,7 +73,10 @@ class RelatorioSemanal extends Command
                         $m->subject('Resumo Semanal: autodicas.com');
                     });
 
+                    Log::info('O relatório semanal foi foi enviado para email: '. $usuario->email);
+
                 } catch (\Exception $e) {
+                    Log::warning('O relatório semanal foi foi enviado para email: '. $usuario->email);
                     return $e->getMessage();
                 }
 
