@@ -41,18 +41,42 @@ class RelatorioSemanal extends Command
      */
     public function handle()
     {
-        /* Query relatório Semanal para enviar para os clientes */
-        $estatisticas = DB::table('anuncios')
-            ->select('titulo','visualizacao','contato')            
-            ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
-            ->where('usuario_id', 3)
-            ->orderBy('visualizacao','DESC')
-            ->get();
 
-        Mail::send('admin.email.estatisticaAnuncio', compact('estatisticas'), function($m){
-        $m->from('andnunes88@gmail.com','Anderson');
-        $m->to('andnunes88@gmail.com','anderson');
-        $m->subject('Resumo Semanal: autodicas.com');
-    });
+       /* Pega os IDS e Emails dos usuarios */
+       $usuarios = DB::table('users')            
+       ->select('users.id AS usuario_id', 'users.email')
+       ->join('anuncios', 'anuncios.usuario_id', '=', 'users.id')
+       ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
+       ->groupBy('users.email')
+       ->get();  
+
+       foreach ($usuarios as $usuario) {
+
+                /* Pega o total de visualizações e contatos */ 
+				$dados = DB::table('users')            
+				->select('users.id AS usuario_id', 'users.email', 
+					DB::raw('sum(estatistica_anuncios.visualizacao) AS total_visualizacao'), 
+					DB::raw('sum(estatistica_anuncios.contato) as total_contato'))
+				->join('anuncios', 'anuncios.usuario_id', '=', 'users.id')
+				->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
+				->where('users.id', $usuario->usuario_id)
+				->groupBy('users.email')
+				->get();
+
+				try {
+
+                    Mail::send('admin.email.estatisticaAnuncio', compact('dados'), function($m){
+                        $m->from('andnunes88@gmail.com','Anderson');
+                        $m->to($usuario->email);
+                        $m->bcc('andnunes88@gmail.com','anderson');
+                        $m->subject('Resumo Semanal: autodicas.com');
+                    });
+
+                } catch (\Exception $e) {
+                    return $e->getMessage();
+                }
+
+            }    
+
     }
 }

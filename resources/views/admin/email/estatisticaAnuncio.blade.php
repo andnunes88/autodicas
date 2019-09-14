@@ -496,22 +496,26 @@
 								}
 							</style>
 
+							<h3>Olá, veja quantas pessoas seus anuncios já alcançaram.</h3><br>
+
 							<table style="width: 100%">
 								<tr class="td-th">
-									<th>Anúncio</th>
-									<th>Visualizações</th>
-									<th>Contato</th>
+									
+									<th>Total de Visualizações</th>
+									<th>Total de Contatos</th>
 								</tr>
 								
-								@foreach($estatisticas as $estatistica)
+								@foreach($dados as $valor)
 								<tr class="td-th">
-								    <td>{{$estatistica->titulo}}</td>
-								    <td>{{$estatistica->visualizacao}}</td>
-								    <td>{{$estatistica->contato}}</td>
+								    
+								    <td>{{$valor->total_visualizacao}}</td>
+								    <td>{{$valor->total_contato}}</td>
 								</tr>	
 								@endforeach							   
 								
 							</table>
+
+							
 
 						</td>
 					</tr>
@@ -522,13 +526,19 @@
 </tbody>
 </table></td>
 </tr>
-<tr>
+
+<tr>	
+
 	<td valign="top" id="templateFooter"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowBlock" style="min-width:100%;">
 		<tbody class="mcnFollowBlockOuter">
-			<tr>
+
+			<tr>				
 				<td align="center" valign="top" style="padding:9px" class="mcnFollowBlockInner">
+
 					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnFollowContentContainer" style="min-width:100%;">
+
 						<tbody><tr>
+
 							<td align="center" style="padding-left:9px;padding-right:9px;">
 								<table border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width:100%;" class="mcnFollowContent">
 									<tbody><tr>
@@ -536,7 +546,8 @@
 											<table align="center" border="0" cellpadding="0" cellspacing="0">
 												<tbody><tr>
 													<td align="center" valign="top">
-                            
+                            	
+                            				<h4>Quer ficar por dentro das nossas novidades?</h4>
                                         
                                         
                                         <table align="left" border="0" cellpadding="0" cellspacing="0" style="display:inline;">

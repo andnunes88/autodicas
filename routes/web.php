@@ -2,25 +2,32 @@
 Use App\Anuncio;
 Use App\EstatisticaAnuncio;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 Route::get('/teste', function(){	
 
-	/* Query relatório Semanal para enviar para os clientes */
-	$estatisticas = DB::table('anuncios')
-            ->select('titulo','visualizacao','contato')            
+/* Pega os IDS dos usuarios */
+ $usuarios = DB::table('users')            
+            ->select('users.id AS usuario_id')
+            ->join('anuncios', 'anuncios.usuario_id', '=', 'users.id')
             ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
-            ->where('usuario_id', 3)
-            ->orderBy('visualizacao','DESC')
-            ->get();	
-	
-	//return view('admin.email.estatisticaAnuncio', compact("estatisticas"));
-	
-	Mail::send('admin.email.estatisticaAnuncio', compact('estatisticas'), function($m){
-		$m->from('andnunes88@gmail.com','Anderson');
-		$m->to('shaynasilvares2@hotmail.com','shay');
-		$m->subject('Resumo Semanal: autodicas.com');
-	});
-	
+            ->groupBy('users.email')
+            ->get();
+
+ 
+foreach ($usuarios as $usuario) {
+
+	$dados = DB::table('users')            
+        ->select('users.id AS usuario_id', 'users.email', 
+            DB::raw('sum(estatistica_anuncios.visualizacao) AS total_visualizacao'), 
+            DB::raw('sum(estatistica_anuncios.contato) as total_contato'))
+        ->join('anuncios', 'anuncios.usuario_id', '=', 'users.id')
+        ->join('estatistica_anuncios', 'estatistica_anuncios.anuncio_id', '=', 'anuncios.id')
+        ->where('users.id', $usuario->usuario_id)
+        ->groupBy('users.email')
+        ->get();
+
+}
 	
 });
 

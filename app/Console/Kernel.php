@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        //$schedule->command('relatorio:semanal')->everyFiveMinutes();
+        $schedule->command('relatorio:semanal')->weeklyOn(1, '20:00');
     }
 
     /**
