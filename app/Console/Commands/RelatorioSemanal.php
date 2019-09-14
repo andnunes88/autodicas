@@ -76,7 +76,7 @@ class RelatorioSemanal extends Command
                     Log::info('O relatório semanal foi foi enviado para email: '. $usuario->email);
 
                 } catch (\Exception $e) {
-                    Log::warning('O relatório semanal foi foi enviado para email: '. $usuario->email);
+                    Log::warning('Relatório semanal NÃO foi enviado para email: '. $usuario->email);
                     return $e->getMessage();
                 }
 
