@@ -28,7 +28,7 @@ Route::get('/', 'Site\AnuncioController@index')->name('site.home');
 
 #Site
 Route::get('/ads/{id_categoria?}', 'Site\AnuncioController@ads')->name('ads');
-//Route::get('/ads/{categoria?}', 'Site\AnuncioController@ads')->name('ads.categoria');
+
 Route::get('/busca', 'Site\AnuncioController@busca')->name('busca');
 
 #Anuncio com Slug
@@ -64,6 +64,10 @@ Route::group(['middleware'=>'auth'], function(){
 
 	/* Estatistica */
 	Route::get('/estatistica', 'Admin\UsuarioController@estatistica')->name('admin.estatistica');
+
+	/* Relatório */
+	Route::get('/relatorio', 'Admin\RelatorioController@index')->name('admin.relatorio');
+	Route::get('/relatorio/anuncios-mais-visitados', 'Admin\RelatorioController@AnunciosMaisVisitados')->name('admin.relatorio.anunciosVisitas');
 
 	/* Carrinho */
 	Route::get('/cart', 'Admin\CartController@index')->name('admin.cart');
