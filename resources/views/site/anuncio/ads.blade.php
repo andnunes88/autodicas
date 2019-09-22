@@ -171,7 +171,7 @@ ul li{
                  <div class="row rating-desc">
                     <div class="col-md-12">
 
-                       <p><strong>Vendedor:</strong> {{ $anuncio->usuario->name }} </p>
+                       <p><strong>Anunciante:</strong> {{ $anuncio->usuario->name }} </p>
                        <p class="info-loja"><strong>Local:</strong> {{ isset($anuncio->usuario->cidade->cidade_nome) ? $anuncio->usuario->cidade->cidade_nome : '' }}</p>	   
 
                    </div>

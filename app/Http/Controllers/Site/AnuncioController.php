@@ -31,12 +31,14 @@ class AnuncioController extends Controller
             
             $registros = Anuncio::where('ativo',true)
             ->Where('categoria_id', $id_categoria)
+            ->inRandomOrder()            
             ->orderBy('relevancia', 'DESC')
             ->paginate(25);
 
         }else{
             
             $registros = Anuncio::where('ativo',true)
+            ->inRandomOrder()
             ->orderBy('relevancia', 'DESC')
             ->paginate(25);
         }        

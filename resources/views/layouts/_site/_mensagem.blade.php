@@ -26,8 +26,7 @@
 			<a href="{{route('admin.anuncios.cadastrar')}}"><button class="btn btn-anunciar">Seja Parceiro</button></a>
 			
 		</div>	
-
-		div
+		
 			
 	</div>
 	
