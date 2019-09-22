@@ -14,15 +14,30 @@ class AnuncioController extends Controller
     //
     public function index(){
         
-        $registros = Anuncio::where('ativo',true)
+        $planoA = Anuncio::where('ativo',true)
+            ->where('relevancia','=','3')
             ->inRandomOrder()
-            ->take(15)
-            ->orderBy('relevancia', 'DESC')
-            ->get();      
+             ->orderBy('relevancia', 'DESC')
+             ->take(5)
+             ->get();
 
+        $planoB = Anuncio::where('ativo',true)
+            ->where('relevancia','=','2')
+            ->inRandomOrder()
+             ->orderBy('relevancia', 'DESC')
+             ->take(5)
+             ->get();
+             
+        $planoC = Anuncio::where('ativo',true)
+            ->where('relevancia','<=','1')
+            ->inRandomOrder()
+             ->orderBy('relevancia', 'DESC')
+             ->take(5)
+             ->get(); 
+            
         $categorias = Categoria::has('Anuncio')->get();
         
-    	return view('site.home', compact('registros','categorias'));
+    	return view('site.home', compact('categorias', 'planoA', 'planoB', 'planoC'));
     }
 
     public function ads($id_categoria = NULL){

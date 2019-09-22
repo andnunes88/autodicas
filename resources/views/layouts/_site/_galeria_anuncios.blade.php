@@ -62,7 +62,7 @@
     <div class="container">			
 		<div class="row">			
 			
-			@foreach($registros as $anuncio)
+			@foreach($planoA as $anuncio)
 				<div class="gallery">
 					
 				  <a href="{{route('site.anuncio.detalhe',  $anuncio->anuncio_slug .'/'. $anuncio->id)}}">
@@ -78,7 +78,43 @@
                 	@endif
 
 				</div>	
-			@endforeach		
+			@endforeach
+
+			@foreach($planoB as $anuncio)
+				<div class="gallery">
+					
+				  <a href="{{route('site.anuncio.detalhe',  $anuncio->anuncio_slug .'/'. $anuncio->id)}}">
+
+					<img src="{{ asset($anuncio->imagem) }}" alt="{{ $anuncio->anuncio_slug }}" width="224" height="224" class="img-responsive center-block">
+				  </a>
+				  <div class="desc">{{$anuncio->titulo}}</div>
+				  
+				   	@if($anuncio->valor == 0)
+                    	<div class="preco">A combinar</div>
+                	@else
+                    	<div class="preco">R$ {{number_format($anuncio->valor,2,",",".")}}  </div>
+                	@endif
+
+				</div>	
+			@endforeach
+
+			@foreach($planoC as $anuncio)
+				<div class="gallery">
+					
+				  <a href="{{route('site.anuncio.detalhe',  $anuncio->anuncio_slug .'/'. $anuncio->id)}}">
+
+					<img src="{{ asset($anuncio->imagem) }}" alt="{{ $anuncio->anuncio_slug }}" width="224" height="224" class="img-responsive center-block">
+				  </a>
+				  <div class="desc">{{$anuncio->titulo}}</div>
+				  
+				   	@if($anuncio->valor == 0)
+                    	<div class="preco">A combinar</div>
+                	@else
+                    	<div class="preco">R$ {{number_format($anuncio->valor,2,",",".")}}  </div>
+                	@endif
+
+				</div>	
+			@endforeach				
 			
 			<div class="clearfix"></div>
 			
