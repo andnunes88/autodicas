@@ -83,6 +83,7 @@ ul li{
    font-size: 20px;
    margin: 0;
    padding: 0;
+   color: #0199de;
 }
 
 #banner-autodicas{

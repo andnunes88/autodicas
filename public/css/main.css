@@ -144,7 +144,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 section {
-  padding: 100px 0;
+  padding: 60px 0px 20px;
 }
 section h2.section-heading {
   font-size: 40px;
@@ -602,7 +602,7 @@ header.masthead .intro-text .intro-heading {
   }
 
   #preco{    
-    color: #0199de;
+    color: #22b14c;
     font-size: 24px;
     font-weight:bold;
   }
@@ -696,7 +696,7 @@ header.masthead .intro-text .intro-heading {
   }
 
   .produto-preco {
-    color:#ff5a00;    
+    color:#22b14c;    
     font-weight: 600;
   }
 
